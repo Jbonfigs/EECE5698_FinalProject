@@ -1,0 +1,4 @@
+1 warning and 26 errors generated.
+Error while processing /home/jbonfigs/EECE5698_FinalProject/heston_mc_project/solution1/.autopilot/db/heston_mc.pp.0.cpp.
+clang-tidy applied 130 of 130 suggested fixes.
+Suppressed 1 warnings (1 with check filters).

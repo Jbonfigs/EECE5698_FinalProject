@@ -1,0 +1,216 @@
+{
+  "0": {
+    "basicblocks": 64,
+    "calls": "12 13",
+    "file": "heston_mc.cpp",
+    "fileloc": 78,
+    "instructions": 198,
+    "loads": {
+      "L": 6
+    },
+    "name": "heston_mc_kernel",
+    "stores": {
+      "L": 14,
+      "T": 1
+    },
+    "total_instructions": 57569
+  },
+  "1": {
+    "basicblocks": 111,
+    "calls": "9 3",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 201,
+    "instructions": 308,
+    "loads": {
+      "L": 45
+    },
+    "name": "generic_sincos<32, 16>",
+    "stores": {
+      "L": 14
+    },
+    "total_instructions": 6523
+  },
+  "10": {
+    "basicblocks": 295,
+    "calls": "2",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 473,
+    "instructions": 921,
+    "loads": {
+      "G": 2,
+      "L": 10
+    },
+    "name": "log<32, 16>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 1106
+  },
+  "11": {
+    "basicblocks": 4146,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 8481,
+    "loads": {
+      "L": 9
+    },
+    "name": "sqrt_fixed<64, 32>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 8481
+  },
+  "12": {
+    "basicblocks": 14,
+    "calls": "",
+    "file": "Mersenne_Twister.cpp",
+    "fileloc": 3,
+    "instructions": 5056,
+    "loads": {
+      "L": 5
+    },
+    "name": "mersenne_twister",
+    "stores": {
+      "L": 628
+    },
+    "total_instructions": 5056
+  },
+  "13": {
+    "basicblocks": 187,
+    "calls": "6",
+    "file": "heston_mc.cpp",
+    "fileloc": 34,
+    "instructions": 417,
+    "loads": {
+      "L": 28
+    },
+    "name": "heston_path_simulator",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 51426
+  },
+  "2": {
+    "basicblocks": 16,
+    "calls": "4",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 223,
+    "instructions": 45,
+    "loads": {
+      "L": 7
+    },
+    "name": "range_reduction<24>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 185
+  },
+  "3": {
+    "basicblocks": 3234,
+    "calls": "",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 51,
+    "instructions": 6141,
+    "loads": {
+      "L": 3
+    },
+    "name": "cordic_circ_apfixed<34, 3, 0>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 6141
+  },
+  "4": {
+    "basicblocks": 61,
+    "calls": "",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 144,
+    "instructions": 140,
+    "loads": {
+      "G": 1,
+      "L": 10
+    },
+    "name": "range_reduce<ap_fixed<29, 7, AP_TRN, AP_WRAP, 0>, 4, 4, 24, 15>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 140
+  },
+  "5": {
+    "basicblocks": 4150,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 8503,
+    "loads": {
+      "L": 9
+    },
+    "name": "sqrt_fixed<65, 33>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 8503
+  },
+  "6": {
+    "basicblocks": 43,
+    "calls": "12 12",
+    "file": "heston_mc.cpp",
+    "fileloc": 4,
+    "instructions": 128,
+    "loads": {
+      "L": 9
+    },
+    "name": "rng_box_muller",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 33029
+  },
+  "7": {
+    "basicblocks": 308,
+    "calls": "",
+    "file": "hls_exp_apfixed.h",
+    "fileloc": 13,
+    "instructions": 884,
+    "loads": {
+      "G": 5,
+      "L": 1
+    },
+    "name": "exp<65, 33>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 884
+  },
+  "8": {
+    "basicblocks": 2178,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 4731,
+    "loads": {
+      "L": 9
+    },
+    "name": "sqrt_fixed<32, 16>",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 4731
+  },
+  "9": {
+    "basicblocks": 39,
+    "calls": "",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 32,
+    "instructions": 74,
+    "loads": {
+      "L": 4
+    },
+    "name": "circ_range_redux<32, 16, 33>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 74
+  }
+}

@@ -1,0 +1,487 @@
+--- !Passed
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: heston_mc.cpp, Line: 92, Column: 9 }
+Function:        _Z16heston_mc_kernel12HestonParams8MCConfigP8ap_fixedILi32ELi16EL9ap_q_mode5EL9ap_o_mode3ELi0EEj
+Args:            
+  - String:          'Adding '''
+  - Name:            rng_state
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: heston_mc.cpp, Line: 92, Column: 9 }
+Function:        _Z16heston_mc_kernel12HestonParams8MCConfigP8ap_fixedILi32ELi16EL9ap_q_mode5EL9ap_o_mode3ELi0EEj
+Args:            
+  - String:          'Adding '''
+  - Name:            rng_state
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: heston_mc.cpp, Line: 91, Column: 11 }
+Function:        _Z16heston_mc_kernel12HestonParams8MCConfigP8ap_fixedILi32ELi16EL9ap_q_mode5EL9ap_o_mode3ELi0EEj
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            rng_state
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 547, Column: 36 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_547_20
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 539, Column: 28 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_539_19
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 525, Column: 28 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_525_17
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 268, Column: 27 }
+Function:        _Z10sqrt_fixedILi65ELi33EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 240, Column: 27 }
+Function:        _Z10sqrt_fixedILi65ELi33EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                   Line: 61, Column: 22 }
+Function:        _ZN14cordic_apfixed19cordic_circ_apfixedILi34ELi3ELi0EEEvR8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES5_S5_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_61_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 268, Column: 27 }
+Function:        _Z10sqrt_fixedILi64ELi32EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 240, Column: 27 }
+Function:        _Z10sqrt_fixedILi64ELi32EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                   Line: 703, Column: 31 }
+Function:        _ZN18log_apfixed_reduce3logILi32ELi16EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_703_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 268, Column: 27 }
+Function:        _Z10sqrt_fixedILi32ELi16EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_.107
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 240, Column: 27 }
+Function:        _Z10sqrt_fixedILi32ELi16EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_.107
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Mersenne_Twister.cpp, Line: 12, Column: 26 }
+Function:        _Z16mersenne_twisterP8mt_statej
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_12_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 14, Column: 0 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_547_20
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h:547:36'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'exp_reduce::exp<65, 33>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 14, Column: 0 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_539_19
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h:539:28'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'exp_reduce::exp<65, 33>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '27'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h, 
+                   Line: 14, Column: 0 }
+Function:        _ZN10exp_reduce3expILi65ELi33EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_525_17
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_exp_apfixed.h:525:28'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'exp_reduce::exp<65, 33>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '65'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi65ELi33EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:268:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<65, 33>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '33'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi65ELi33EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:240:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<65, 33>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '17'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                   Line: 53, Column: 0 }
+Function:        _ZN14cordic_apfixed19cordic_circ_apfixedILi34ELi3ELi0EEEvR8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES5_S5_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_61_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h:61:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'cordic_apfixed::cordic_circ_apfixed<34, 3, 0>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '34'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PipelineRemovedByUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                   Line: 53, Column: 0 }
+Function:        _ZN14cordic_apfixed19cordic_circ_apfixedILi34ELi3ELi0EEEvR8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES5_S5_
+Args:            
+  - String:          'Pipeline directive for loop '''
+  - LoopName:        VITIS_LOOP_61_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h:61:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'cordic_apfixed::cordic_circ_apfixed<34, 3, 0>'
+  - String:          ''' has been removed because the loop is unrolled completely'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi64ELi32EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:268:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<64, 32>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '33'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi64ELi32EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:240:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<64, 32>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                   Line: 474, Column: 0 }
+Function:        _ZN18log_apfixed_reduce3logILi32ELi16EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_703_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h:703:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'log_apfixed_reduce::log<32, 16>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '32'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi32ELi16EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_.107
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_268_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:268:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<32, 16>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '17'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h, 
+                   Line: 17, Column: 0 }
+Function:        _Z10sqrt_fixedILi32ELi16EE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_.107
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_240_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_sqrt_apfixed.h:240:27'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'sqrt_fixed<32, 16>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '8'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Mersenne_Twister.cpp, Line: 4, Column: 0 }
+Function:        _Z16mersenne_twisterP8mt_statej
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_12_1
+  - String:          ''' ('
+  - LoopLoc:         'Mersenne_Twister.cpp:12:26'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          mersenne_twister
+  - String:          ''' completely with a factor of '
+  - Factor:          '623'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                   Line: 223, Column: 0 }
+Function:        _ZN18log_apfixed_reduce10log_traitsILi2EE15range_reductionILi24EEE9ap_ufixedILi15ELin7EL9ap_q_mode5EL9ap_o_mode3ELi0EES3_IXT_ELin4ELS4_5ELS5_3ELi0EER8ap_fixedILi29ELi7ELS4_5ELS5_3ELi0EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void log_apfixed_reduce::range_reduce<ap_fixed<29, 7, (ap_q_mode)5, (ap_o_mode)3, 0>, 4, 4, 24, 15>(ap_ufixed<24, -(4), (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<29, 7, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<15, -(((4) + (4)) - (1)), (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                       Line: 145, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_ufixed<15, -7, (ap_q_mode)5, (ap_o_mode)3, 0> log_apfixed_reduce::log_traits<2>::range_reduction<24>(ap_ufixed<24, -4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<29, 7, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                       Line: 223, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                   Line: 474, Column: 0 }
+Function:        _ZN18log_apfixed_reduce3logILi32ELi16EEE8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EES4_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_ufixed<15, -7, (ap_q_mode)5, (ap_o_mode)3, 0> log_apfixed_reduce::log_traits<2>::range_reduction<24>(ap_ufixed<24, -4, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<29, 7, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                       Line: 223, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> log_apfixed_reduce::log<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_log_apfixed.h, 
+                       Line: 474, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                   Line: 202, Column: 0 }
+Function:        _ZN14cordic_apfixed14generic_sincosILi32ELi16EEEv8ap_fixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERS1_IXplmiT_T0_Li2EELi2ELS2_5ELS3_3ELi0EES6_.72
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void cordic_apfixed::circ_range_redux<32, 16, 33>(ap_ufixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_uint<2>&, ap_ufixed<33, 1, (ap_q_mode)5, (ap_o_mode)3, 0>&)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                       Line: 34, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void cordic_apfixed::generic_sincos<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&) (.72)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                       Line: 202, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/hls_math.h, 
+                   Line: 1927, Column: 0 }
+Function:        _ZN3hls3cosILi32ELi16EEE8ap_fixedIXplmiT_T0_Li2EELi2EL9ap_q_mode5EL9ap_o_mode3ELi0EES1_IXT_EXT0_ELS2_5ELS3_3ELi0EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void cordic_apfixed::generic_sincos<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&) (.72)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                       Line: 202, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0> hls::cos<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/hls_math.h, 
+                       Line: 1927, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/hls_math.h, 
+                   Line: 1908, Column: 0 }
+Function:        _ZN3hls3sinILi32ELi16EEE8ap_fixedIXplmiT_T0_Li2EELi2EL9ap_q_mode5EL9ap_o_mode3ELi0EES1_IXT_EXT0_ELS2_5ELS3_3ELi0EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void cordic_apfixed::generic_sincos<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&) (.72)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/hls_cordic_apfixed.h, 
+                       Line: 202, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_fixed<((32) - (16)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0> hls::sin<32, 16>(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/hls_math.h, 
+                       Line: 1908, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: heston_mc.cpp, Line: 91, Column: 11 }
+Function:        _Z16heston_mc_kernel12HestonParams8MCConfigP8ap_fixedILi32ELi16EL9ap_q_mode5EL9ap_o_mode3ELi0EEj
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          rng_state.state_array
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '4'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...

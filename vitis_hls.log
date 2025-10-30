@@ -8,13 +8,13 @@
 
 source /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/scripts/vitis_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'jbonfigs' on host 'jack-b-Precision-7875-Tower' (Linux_x86_64 version 6.14.0-33-generic) on Tue Oct 28 12:22:01 EDT 2025
+INFO: [HLS 200-10] For user 'jbonfigs' on host 'jack-b-Precision-7875-Tower' (Linux_x86_64 version 6.14.0-33-generic) on Thu Oct 30 12:05:54 EDT 2025
 INFO: [HLS 200-10] On os Ubuntu 24.04.3 LTS
-INFO: [HLS 200-10] In directory '/home/jbonfigs/Pictures/Screenshots/EECE5698/Final_Project'
+INFO: [HLS 200-10] In directory '/home/jbonfigs/EECE5698_FinalProject'
 INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
 Sourcing Tcl script 'run_hls.tcl'
 INFO: [HLS 200-1510] Running: open_project heston_mc_project 
-INFO: [HLS 200-10] Opening project '/home/jbonfigs/Pictures/Screenshots/EECE5698/Final_Project/heston_mc_project'.
+INFO: [HLS 200-10] Opening project '/home/jbonfigs/EECE5698_FinalProject/heston_mc_project'.
 INFO: [HLS 200-1510] Running: set_top heston_mc_kernel 
 INFO: [HLS 200-1510] Running: add_files heston_mc.cpp -cflags -std=c++11 
 INFO: [HLS 200-10] Adding design file 'heston_mc.cpp' to the project
@@ -27,7 +27,7 @@ INFO: [HLS 200-10] Adding design file 'Mersenne_Twister.h' to the project
 INFO: [HLS 200-1510] Running: add_files -tb heston_mc_tb.cpp -cflags -std=c++11 
 INFO: [HLS 200-10] Adding test bench file 'heston_mc_tb.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
-INFO: [HLS 200-10] Opening solution '/home/jbonfigs/Pictures/Screenshots/EECE5698/Final_Project/heston_mc_project/solution1'.
+INFO: [HLS 200-10] Opening solution '/home/jbonfigs/EECE5698_FinalProject/heston_mc_project/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
 INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-2-e'
 INFO: [HLS 200-1505] Using flow_target 'vivado'
@@ -81,23 +81,7 @@ Parameters:
   rho = -0.700012
 
 Monte Carlo Configuration:
-  Simulations: 100
+  Simulations: 500
   Time steps: 252
 
 Running Monte Carlo simulation...
-Heston MC Option Price: -45.330933
-Black-Scholes Price (reference): 10.449304
-Difference: -55.780237
-
---- Test Case 2: Out-of-the-Money Option ---
-Parameters: Same as Test 1, but K = 110.000000
-Running Monte Carlo simulation...
-Heston MC Option Price: -54.869522
-
---- Test Case 3: High Volatility ---
-Parameters: v0 = 0.089996 (vol = 29.999390%)
-Running Monte Carlo simulation...
-Heston MC Option Price: -255.779358
-
---- Convergence Test ---
-Simulations:   1000 -> Price: -30.688171

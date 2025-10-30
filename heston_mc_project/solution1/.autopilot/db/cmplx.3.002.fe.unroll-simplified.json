@@ -1,0 +1,216 @@
+{
+  "0": {
+    "basicblocks": 4,
+    "calls": "12 13",
+    "file": "heston_mc.cpp",
+    "fileloc": 78,
+    "instructions": 97,
+    "loads": {
+      "L": 2
+    },
+    "name": "heston_mc_kernel",
+    "stores": {
+      "L": 14,
+      "T": 1
+    },
+    "total_instructions": 27764
+  },
+  "1": {
+    "basicblocks": 14,
+    "calls": "9 3",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 201,
+    "instructions": 109,
+    "loads": {
+      "L": 12
+    },
+    "name": "generic_sincos<32, 16>",
+    "stores": {
+      "L": 14
+    },
+    "total_instructions": 1488
+  },
+  "10": {
+    "basicblocks": 38,
+    "calls": "2",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 473,
+    "instructions": 531,
+    "loads": {
+      "G": 2,
+      "L": 3
+    },
+    "name": "log<32, 16>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 595
+  },
+  "11": {
+    "basicblocks": 296,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 2511,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<64, 32>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 2511
+  },
+  "12": {
+    "basicblocks": 3,
+    "calls": "",
+    "file": "Mersenne_Twister.cpp",
+    "fileloc": 3,
+    "instructions": 5043,
+    "loads": {
+      "L": 5
+    },
+    "name": "mersenne_twister",
+    "stores": {
+      "L": 628
+    },
+    "total_instructions": 5043
+  },
+  "13": {
+    "basicblocks": 7,
+    "calls": "6",
+    "file": "heston_mc.cpp",
+    "fileloc": 34,
+    "instructions": 128,
+    "loads": {
+      "L": 15
+    },
+    "name": "heston_path_simulator",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 22171
+  },
+  "2": {
+    "basicblocks": 3,
+    "calls": "4",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 223,
+    "instructions": 20,
+    "loads": {
+      "L": 3
+    },
+    "name": "range_reduction<24>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 64
+  },
+  "3": {
+    "basicblocks": 103,
+    "calls": "",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 51,
+    "instructions": 1361,
+    "loads": {
+      "L": 3
+    },
+    "name": "cordic_circ_apfixed<34, 3, 0>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 1361
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 144,
+    "instructions": 44,
+    "loads": {
+      "G": 1,
+      "L": 1
+    },
+    "name": "range_reduce<ap_fixed<29, 7, AP_TRN, AP_WRAP, 0>, 4, 4, 24, 15>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 44
+  },
+  "5": {
+    "basicblocks": 298,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 2529,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<65, 33>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 2529
+  },
+  "6": {
+    "basicblocks": 3,
+    "calls": "12 12",
+    "file": "heston_mc.cpp",
+    "fileloc": 4,
+    "instructions": 69,
+    "loads": {
+      "L": 6
+    },
+    "name": "rng_box_muller",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 16375
+  },
+  "7": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "hls_exp_apfixed.h",
+    "fileloc": 13,
+    "instructions": 448,
+    "loads": {
+      "G": 5,
+      "L": 1
+    },
+    "name": "exp<65, 33>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 448
+  },
+  "8": {
+    "basicblocks": 184,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 1562,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<32, 16>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 1562
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 32,
+    "instructions": 18,
+    "loads": {
+      "L": 1
+    },
+    "name": "circ_range_redux<32, 16, 33>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 18
+  }
+}

@@ -35,7 +35,7 @@ int main() {
     params1.rho = -0.7;      // Correlation
     
     MCConfig config1;
-    config1.num_sims = 100;
+    config1.num_sims = 500;
     config1.num_steps = 252;  // Daily steps
     config1.num_rngs = 4;
     

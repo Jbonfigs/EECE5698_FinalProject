@@ -1,0 +1,170 @@
+{
+  "0": {
+    "basicblocks": 5,
+    "calls": "1 7 5",
+    "file": "heston_mc.cpp",
+    "fileloc": 78,
+    "instructions": 107,
+    "loads": {
+      "L": 2
+    },
+    "name": "heston_mc_kernel",
+    "stores": {
+      "L": 12,
+      "T": 1
+    },
+    "total_instructions": 32640
+  },
+  "1": {
+    "basicblocks": 8,
+    "calls": "",
+    "file": "Mersenne_Twister.cpp",
+    "fileloc": 3,
+    "instructions": 6959,
+    "loads": {
+      "L": 14
+    },
+    "name": "mersenne_twister",
+    "stores": {
+      "L": 631
+    },
+    "total_instructions": 6959
+  },
+  "10": {
+    "basicblocks": 3,
+    "calls": "",
+    "file": "Mersenne_Twister.cpp",
+    "fileloc": 3,
+    "instructions": 5043,
+    "loads": {
+      "L": 5
+    },
+    "name": "mersenne_twister",
+    "stores": {
+      "L": 628
+    },
+    "total_instructions": 5043
+  },
+  "2": {
+    "basicblocks": 97,
+    "calls": "",
+    "file": "hls_cordic_apfixed.h",
+    "fileloc": 51,
+    "instructions": 1183,
+    "loads": {
+      "L": 3
+    },
+    "name": "cordic_circ_apfixed<34, 3, 0>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 1183
+  },
+  "3": {
+    "basicblocks": 13,
+    "calls": "1 1 8 9",
+    "file": "heston_mc.cpp",
+    "fileloc": 4,
+    "instructions": 154,
+    "loads": {
+      "L": 4
+    },
+    "name": "rng_box_muller",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 19562
+  },
+  "4": {
+    "basicblocks": 298,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 2483,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<65, 33>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 2483
+  },
+  "5": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "hls_exp_apfixed.h",
+    "fileloc": 13,
+    "instructions": 384,
+    "loads": {
+      "G": 5,
+      "L": 1
+    },
+    "name": "exp<65, 33>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 384
+  },
+  "6": {
+    "basicblocks": 152,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 1504,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<32, 16>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 1504
+  },
+  "7": {
+    "basicblocks": 7,
+    "calls": "6 3 4 6",
+    "file": "heston_mc.cpp",
+    "fileloc": 34,
+    "instructions": 137,
+    "loads": {
+      "L": 15
+    },
+    "name": "heston_path_simulator",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 25190
+  },
+  "8": {
+    "basicblocks": 38,
+    "calls": "",
+    "file": "hls_log_apfixed.h",
+    "fileloc": 473,
+    "instructions": 500,
+    "loads": {
+      "G": 3,
+      "L": 1
+    },
+    "name": "log<32, 16>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 500
+  },
+  "9": {
+    "basicblocks": 296,
+    "calls": "",
+    "file": "hls_sqrt_apfixed.h",
+    "fileloc": 16,
+    "instructions": 2462,
+    "loads": {
+      "L": 1
+    },
+    "name": "sqrt_fixed<64, 32>",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 2462
+  }
+}

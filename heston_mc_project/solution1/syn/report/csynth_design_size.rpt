@@ -1,0 +1,58 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 89,331       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  | 57,569       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 27,764       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 27,575       | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 26,972       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         | 32,640       | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 27,003       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 27,003       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 27,003       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 27,006       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     | 26,932       | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 26,931       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 26,931       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 26,931       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                | 27,131       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 26,333       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++--------------------------+------------------------+-----------------+------------------+------------------+------------------+------------------+
+| Function                 | Location               | Compile/Link    | Unroll/Inline    | Array/Struct     | Performance      | HW Transforms    |
++--------------------------+------------------------+-----------------+------------------+------------------+------------------+------------------+
+| + heston_mc_kernel       | heston_mc.cpp:78       | 89,331          | 26,972           | 27,006           | 26,931           | 26,333           |
+|    mersenne_twister      | Mersenne_Twister.cpp:3 |   100           | 5,043            | 5,080            | 5,080            | 5,080            |
+|  + heston_path_simulator | heston_mc.cpp:34       | 40,377          | 21,443           | 21,434           | 21,386           | 20,781           |
+|   + rng_box_muller       | heston_mc.cpp:4        | 21,866          | 15,750           | 15,804           | 15,786           | 15,185           |
+|      mersenne_twister    | Mersenne_Twister.cpp:3 |   200 (2 calls) | 10,086 (2 calls) | 10,160 (2 calls) | 10,160 (2 calls) | 10,160 (2 calls) |
+|      log<32, 16>         | hls_log_apfixed.h:473  |                 |   500            |   500            |   499            |   500            |
+|      sqrt_fixed<64, 32>  | hls_sqrt_apfixed.h:16  |                 | 2,462            | 2,462            | 2,461            | 2,462            |
+|     sqrt_fixed<32, 16>   | hls_sqrt_apfixed.h:16  |                 | 3,072 (2 calls)  | 3,008 (2 calls)  | 3,006 (2 calls)  | 3,008 (2 calls)  |
+|     sqrt_fixed<65, 33>   | hls_sqrt_apfixed.h:16  |                 | 2,483            | 2,483            | 2,482            | 2,483            |
+|    exp<65, 33>           | hls_exp_apfixed.h:13   |                 |   384            |   384            |   383            |   384            |
++--------------------------+------------------------+-----------------+------------------+------------------+------------------+------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+
