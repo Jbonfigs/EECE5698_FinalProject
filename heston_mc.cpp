@@ -11,6 +11,8 @@ void rng_box_muller(
     // Generate two uniform random numbers using Mersenne Twister
     uint32_t u1_int = mersenne_twister(rng_state, 0);
     uint32_t u2_int = mersenne_twister(rng_state, 0);
+
+    // test
     
     // Convert to [0,1]
     // MT generates 32-bit integers, normalize to (0,1)
