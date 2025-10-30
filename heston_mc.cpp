@@ -12,7 +12,7 @@ void rng_box_muller(
     uint32_t u1_int = mersenne_twister(rng_state, 0);
     uint32_t u2_int = mersenne_twister(rng_state, 0);
 
-    // test
+    // test2
     
     // Convert to [0,1]
     // MT generates 32-bit integers, normalize to (0,1)
