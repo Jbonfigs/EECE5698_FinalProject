@@ -1,56 +1,100 @@
 ############################################################
-## Vitis HLS TCL Script for Heston Monte Carlo
-## Target: Zynq Ultrascale+ ZCU102 (xczu9eg-ffvb1156-2-e)
+## Heston European Option Pricing - HLS TCL Script
+## Target: Xilinx Zynq UltraScale+ ZCU102
+## Description: Synthesizes Heston model option pricing
 ############################################################
 
+# Set project name and top-level function
+set project_name "hestonEuro_hls"
+set top_function "hestonEuro"
+set solution_name "solution1"
+set device_part "xczu9eg-ffvb1156-2-e"
+
 # Create new project
-open_project heston_mc_project
+open_project -reset $project_name
 
-# Set top function
-set_top heston_mc_kernel
+# Add source files
+add_files hestonEuro.cpp -cflags "-I./common"
+add_files common/RNG.cpp -cflags "-I./common"
+add_files common/stockData.cpp -cflags "-I./common"
+add_files common/volatilityData.cpp -cflags "-I./common"
 
-# Add design files
-add_files heston_mc.cpp -cflags "-std=c++11"
-add_files heston_mc.h -cflags "-std=c++11"
-add_files Mersenne_Twister.cpp -cflags "-std=c++11"
-add_files Mersenne_Twister.h -cflags "-std=c++11"
+# Add testbench file
+add_files -tb hestonEuro_tb.cpp -cflags "-I./common"
 
-# Add testbench
-add_files -tb heston_mc_tb.cpp -cflags "-std=c++11"
+# Set top-level function
+set_top $top_function
 
-# Create solution targeting ZCU102
-open_solution "solution1" -flow_target vivado
+# Create solution
+open_solution -reset $solution_name
 
-# Set ZCU102 part
-set_part {xczu9eg-ffvb1156-2-e}
+# Set target device (Zynq UltraScale+ ZCU102)
+set_part $device_part
 
-# Create clock with 5ns period (200MHz)
-create_clock -period 5 -name default
+# Create clock constraint (100 MHz = 10ns period)
+create_clock -period 10 -name default
 
-# Set synthesis directives
-config_compile -name_max_length 80 -pipeline_loops 64
+# Set clock uncertainty (typical for Zynq US+)
+config_interface -m_axi_latency 64
+config_interface -m_axi_addr64
+config_compile -pipeline_loops 0
 
-# Interface synthesis options
-config_interface -m_axi_latency 64 -m_axi_max_widen_bitwidth 512
+# Configuration options for better performance
+config_rtl -reset all
+config_rtl -reset_level high
+config_schedule -enable_dsp_full_reg
 
-# RTL configuration
-config_rtl -reset all -reset_async -reset_level low
-
-# Configure scheduling
-config_schedule -effort high -enable_dsp_full_reg
-
-# Run C simulation
+############################################################
+## C Simulation
+############################################################
+puts "================================================"
+puts "Running C Simulation..."
+puts "================================================"
 csim_design -clean
 
-# Run synthesis
+############################################################
+## C Synthesis
+############################################################
+puts "================================================"
+puts "Running C Synthesis..."
+puts "================================================"
 csynth_design
 
-# Run C/RTL co-simulation (optional, takes longer)
-# Uncomment the following line to run co-simulation
-# cosim_design -trace_level all
+############################################################
+## C/RTL Co-simulation
+############################################################
+puts "================================================"
+puts "Running C/RTL Co-simulation..."
+puts "================================================"
+cosim_design -trace_level all -rtl verilog
 
-# Export IP for Vivado integration
-export_design -format ip_catalog -description "Heston Monte Carlo Option Pricing" -vendor "user" -version "1.0"
+############################################################
+## Export RTL
+############################################################
+puts "================================================"
+puts "Exporting RTL Design..."
+puts "================================================"
+export_design -rtl verilog -format ip_catalog -output ./export_ip
 
-# Exit
+############################################################
+## Generate Reports
+############################################################
+puts "================================================"
+puts "Generating Reports..."
+puts "================================================"
+
+# Print resource utilization
+puts "\n--- Resource Utilization ---"
+puts "Check the generated report: $project_name/$solution_name/syn/report/${top_function}_csynth.rpt"
+
+# Print timing information
+puts "\n--- Timing Information ---"
+puts "Check the generated report: $project_name/$solution_name/syn/report/${top_function}_csynth.rpt"
+
+puts "================================================"
+puts "HLS Flow Complete!"
+puts "================================================"
+puts "Results available in: $project_name/$solution_name/"
+puts "================================================"
+
 exit
