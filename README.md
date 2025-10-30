@@ -299,8 +299,6 @@ heston_project/
 ├── hestonEuro.h             Header file
 ├── hestonEuro_tb.cpp        Test bench with 6 test cases
 ├── run_hls.tcl              HLS script (100 MHz target)
-├── run_hls_optimized.tcl    HLS script (200 MHz target)
-├── Makefile                 Build automation
 └── common/
     ├── RNG.cpp              Random number generator
     ├── RNG.h
