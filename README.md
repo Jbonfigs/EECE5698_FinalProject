@@ -107,69 +107,69 @@ Payoff = max(K - ST, 0)
 
 ## System Overview
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                     Heston Option Pricing System                 │
-└─────────────────────────────────────────────────────────────────┘
-                                 │
-                                 │ Input Parameters
-                                 ▼
-        ┌────────────────────────────────────────────────┐
-        │          hestonEuro (Top Function)             │
-        │  - Receives market and model parameters        │
-        │  - Creates data structures                     │
-        │  - Initiates simulation                        │
-        └────────────────┬───────────────────────────────┘
-                         │
-                         ▼
-        ┌────────────────────────────────────────────────┐
-        │         heston::simulation()                   │
-        │  - Initializes parallel RNG instances          │
-        │  - Sets up Monte Carlo framework               │
-        └────────────────┬───────────────────────────────┘
-                         │
-                         ▼
-        ┌────────────────────────────────────────────────┐
-        │         heston::sampleSIM()                    │
-        │  - Main Monte Carlo simulation loop            │
-        │  - Computes stock price paths                  │
-        │  - Accumulates payoffs                         │
-        └────────────────┬───────────────────────────────┘
-                         │
-                         ├─────────────┬─────────────┐
-                         ▼             ▼             ▼
-        ┌──────────────────┐  ┌──────────────────┐  ...
-        │   RNG Instance 0 │  │  RNG Instance 1  │
-        │  - Mersenne      │  │  - Mersenne      │
-        │    Twister       │  │    Twister       │
-        │  - Box-Muller    │  │  - Box-Muller    │
-        │    Transform     │  │    Transform     │
-        └──────────────────┘  └──────────────────┘
-                │                      │
-                └──────────┬───────────┘
-                           ▼
-        ┌────────────────────────────────────────────────┐
-        │        Stock Price Evolution                   │
-        │  For each time step:                           │
-        │    1. Generate random shocks (num1, num2)      │
-        │    2. Update volatility using Heston SDE       │
-        │    3. Update stock price using correlated      │
-        │       random walk                              │
-        └────────────────┬───────────────────────────────┘
-                         │
-                         ▼
-        ┌────────────────────────────────────────────────┐
-        │         Payoff Calculation                     │
-        │  - Compute final stock prices                  │
-        │  - Calculate call/put payoffs                  │
-        │  - Average across all paths                    │
-        │  - Discount to present value                   │
-        └────────────────┬───────────────────────────────┘
-                         │
-                         ▼ Output Prices
-        ┌────────────────────────────────────────────────┐
-        │         Call Price         Put Price           │
-        └────────────────────────────────────────────────┘
+### System Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Input Layer"
+        A[Market Parameters] --> A1[S0: Stock PriceK: Strike Pricer: Risk-free RateT: Time to Maturitysigma: Volatility]
+        B[Heston Parameters] --> B1[theta: Long-term Variancekappa: Mean Reversionxi: Vol of Volrho: Correlation]
+    end
+    
+    subgraph "Top-Level Function"
+        C[hestonEuro]
+        A1 --> C
+        B1 --> C
+        C --> D[Create stockData]
+        C --> E[Create volData]
+    end
+    
+    subgraph "Simulation Setup"
+        D --> F[heston::simulation]
+        E --> F
+        F --> G[Initialize RNG Array]
+        G --> H[RNG Instance 0]
+        G --> I[RNG Instance 1]
+        G --> J[RNG Instance N]
+    end
+    
+    subgraph "Monte Carlo Engine"
+        H --> K[heston::sampleSIM]
+        I --> K
+        J --> K
+        K --> L[Parallel Path Simulation]
+    end
+    
+    subgraph "Path Generation"
+        L --> M[Time Step Loop]
+        M --> N[Generate Random Numbers]
+        N --> O[Update VolatilityHeston SDE]
+        O --> P[Update Stock PriceCorrelated Walk]
+        P --> Q{More Steps?}
+        Q -->|Yes| M
+        Q -->|No| R[Calculate Payoff]
+    end
+    
+    subgraph "Result Aggregation"
+        R --> S[Accumulate Call Payoffs]
+        R --> T[Accumulate Put Payoffs]
+        S --> U[Average Over All Paths]
+        T --> U
+        U --> V[Discount to Present Value]
+    end
+    
+    subgraph "Output Layer"
+        V --> W[Call Option Price]
+        V --> X[Put Option Price]
+    end
+    
+    style A fill:#e1f5ff
+    style B fill:#e1f5ff
+    style C fill:#fff4e1
+    style F fill:#ffe1f5
+    style K fill:#e1ffe1
+    style W fill:#ffe1e1
+    style X fill:#ffe1e1
 ```
 
 ### Component Descriptions
@@ -200,8 +200,87 @@ Payoff = max(K - ST, 0)
 
 ### Parallelization Strategy
 
+```mermaid
+graph TB
+    subgraph "Parallelization Hierarchy"
+        A[Total Simulations] --> B[NUM_SIMS = 16Sequential Iterations]
+        B --> C[NUM_RNGS = 2Parallel RNG Instances]
+        C --> D[NUM_SIMGROUPS = 2Parallel Path Groups]
+    end
+    
+    subgraph "RNG Instance 0"
+        E[RNG 0 - Seed 0]
+        E --> F[Group 0]
+        E --> G[Group 1]
+        
+        F --> F1[Path 1]
+        F --> F2[Path 2]
+        F --> F3[Path N]
+        
+        G --> G1[Path 1]
+        G --> G2[Path 2]
+        G --> G3[Path N]
+    end
+    
+    subgraph "RNG Instance 1"
+        H[RNG 1 - Seed 1]
+        H --> I[Group 0]
+        H --> J[Group 1]
+        
+        I --> I1[Path 1]
+        I --> I2[Path 2]
+        I --> I3[Path N]
+        
+        J --> J1[Path 1]
+        J --> J2[Path 2]
+        J --> J3[Path N]
+    end
+    
+    C --> E
+    C --> H
+    
+    subgraph "Aggregation"
+        F1 --> K[Sum RNG 0 Payoffs]
+        F2 --> K
+        F3 --> K
+        G1 --> K
+        G2 --> K
+        G3 --> K
+        
+        I1 --> L[Sum RNG 1 Payoffs]
+        I2 --> L
+        I3 --> L
+        J1 --> L
+        J2 --> L
+        J3 --> L
+        
+        K --> M[Total Call Sum]
+        L --> M
+        K --> N[Total Put Sum]
+        L --> N
+        
+        M --> O[Average Call:Sum / Total Paths]
+        N --> P[Average Put:Sum / Total Paths]
+        
+        O --> Q[Discount Factor:exp-r*T * K]
+        P --> Q
+        
+        Q --> R[Final Call Price]
+        Q --> S[Final Put Price]
+    end
+    
+    style A fill:#e1f5ff
+    style E fill:#fff4e1
+    style H fill:#fff4e1
+    style M fill:#e1ffe1
+    style N fill:#e1ffe1
+    style R fill:#ffe1e1
+    style S fill:#ffe1e1
 ```
-Total Simulation Paths = NUM_RNGS * NUM_SIMGROUPS * NUM_SIMS
+
+Total Simulation Paths:
+```
+Total Paths = NUM_RNGS * NUM_SIMGROUPS * NUM_SIMS
 
 Default Configuration:
 - NUM_RNGS = 2      (parallel RNG instances)
@@ -233,38 +312,13 @@ heston_project/
 
 ## Running the Project
 
-### Software Simulation
-
-Compile and run the test bench without FPGA tools:
-
-```bash
-# Using make
-make sw_test
-
-# Or manually
-g++ -std=c++11 -O3 -I./common \
-    hestonEuro.cpp \
-    common/RNG.cpp \
-    common/stockData.cpp \
-    common/volatilityData.cpp \
-    hestonEuro_tb.cpp \
-    -o test -lm
-
-./test
-```
-
-Expected output shows 6 test cases with option prices and Put-Call parity validation.
-
-### HLS Synthesis
+### HLS 
 
 Run Vitis HLS to generate RTL for FPGA implementation:
 
 ```bash
-# Standard flow (100 MHz target clock)
+source /PATH_TO_VITIS_HLS/2023.2/settings64.sh
 vitis_hls run_hls.tcl
-
-# Or using make
-make hls
 ```
 
 This performs:
@@ -272,38 +326,6 @@ This performs:
 2. C Synthesis - RTL generation
 3. C/RTL Co-simulation - Hardware verification
 4. Export Design - IP packaging
-
-Results are generated in:
-```
-hestonEuro_hls/solution1/
-├── syn/report/              Synthesis reports
-├── sim/report/              Simulation reports
-└── impl/                    Implementation results
-```
-
-### Optimized Synthesis
-
-For higher performance with 200 MHz target:
-
-```bash
-vitis_hls run_hls_optimized.tcl
-
-# Or using make
-make hls_opt
-```
-
-### Viewing Results
-
-Check synthesis report:
-```bash
-cat hestonEuro_hls/solution1/syn/report/hestonEuro_csynth.rpt
-```
-
-Key metrics to examine:
-- Latency (clock cycles)
-- Interval (throughput)
-- Resource utilization (BRAM, DSP, FF, LUT)
-- Timing (clock period achieved)
 
 ## Test Cases
 
@@ -320,3 +342,16 @@ Each test validates:
 - Positive option prices
 - Put-Call parity relationship
 - Correct relative pricing (ITM > ATM > OTM)
+
+## Expected Accuracy
+
+Put-Call parity errors should be:
+- Normal volatility: 0.02 to 0.08 (acceptable)
+- High volatility: 0.5 to 1.0 (marginal)
+- Target: Less than 0.10 for production use
+
+Typical errors:
+- At-The-Money: 0.04 to 0.05
+- In/Out-of-The-Money: 0.04 to 0.06
+- Short maturity: 0.05 to 0.08
+- High volatility: 0.70 to 1.00
