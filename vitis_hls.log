@@ -1,0 +1,577 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+  **** SW Build 4023990 on Oct 11 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/jbonfigs/Xilinx/Vitis_HLS/2023.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/home/jbonfigs/Xilinx/Vitis_HLS/2023.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'jbonfigs' on host 'jack-b-Precision-7875-Tower' (Linux_x86_64 version 6.14.0-35-generic) on Mon Nov 10 19:24:26 EST 2025
+INFO: [HLS 200-10] On os Ubuntu 24.04.3 LTS
+INFO: [HLS 200-10] In directory '/home/jbonfigs/EECE5698_FinalProject'
+INFO: [HLS 200-2053] The vitis_hls executable is being deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: source run_hls.tcl
+INFO: [HLS 200-1510] Running: open_project -reset hestonEuro_hls 
+INFO: [HLS 200-10] Opening and resetting project '/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls'.
+INFO: [HLS 200-1510] Running: add_files hestonEuro.cpp -cflags -I./common 
+INFO: [HLS 200-10] Adding design file 'hestonEuro.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files common/RNG.cpp -cflags -I./common 
+INFO: [HLS 200-10] Adding design file 'common/RNG.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files common/stockData.cpp -cflags -I./common 
+INFO: [HLS 200-10] Adding design file 'common/stockData.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files common/volatilityData.cpp -cflags -I./common 
+INFO: [HLS 200-10] Adding design file 'common/volatilityData.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb hestonEuro_tb.cpp -cflags -I./common 
+INFO: [HLS 200-10] Adding test bench file 'hestonEuro_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top hestonEuro 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xczu9eg-ffvb1156-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 64 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_addr64 
+INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
+INFO: [HLS 200-1510] Running: config_rtl -reset all 
+INFO: [HLS 200-1510] Running: config_rtl -reset_level high 
+INFO: [HLS 200-1510] Running: config_schedule -enable_dsp_full_reg 
+================================================
+Running C Simulation...
+================================================
+INFO: [HLS 200-1510] Running: csim_design -clean 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../hestonEuro_tb.cpp in debug mode
+   Compiling ../../../../common/volatilityData.cpp in debug mode
+   Compiling ../../../../common/stockData.cpp in debug mode
+   Compiling ../../../../common/RNG.cpp in debug mode
+   Compiling ../../../../hestonEuro.cpp in debug mode
+   Generating csim.exe
+
+***************************************
+* Heston European Option Pricing Test *
+***************************************
+
+Running Test 1: At-The-Money Option...
+
+========================================
+Test: At-The-Money Option
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   15.333257
+Put Option Price:    10.687498
+Put-Call Parity Check:
+  C - P = 4.645759
+  S - K*e^(-rT) = 4.877052
+  Error = 0.231294
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 2: In-The-Money Call Option...
+
+========================================
+Test: In-The-Money Call
+========================================
+Stock Price (S0):    110.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   22.349947
+Put Option Price:    7.727313
+Put-Call Parity Check:
+  C - P = 14.622634
+  S - K*e^(-rT) = 14.877052
+  Error = 0.254418
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 3: Out-of-The-Money Call Option...
+
+========================================
+Test: Out-of-The-Money Call
+========================================
+Stock Price (S0):    90.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   9.432361
+Put Option Price:    14.763469
+Put-Call Parity Check:
+  C - P = -5.331108
+  S - K*e^(-rT) = -5.122948
+  Error = 0.208160
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 4: Short Time to Maturity...
+
+========================================
+Test: Short Time to Maturity
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):0.100000
+----------------------------------------
+Call Option Price:   5.722283
+Put Option Price:    5.256601
+Put-Call Parity Check:
+  C - P = 0.465682
+  S - K*e^(-rT) = 0.498756
+  Error = 0.033074
+  Status: PASS (Error < 0.1)
+========================================
+
+Running Test 5: High Volatility Scenario...
+
+========================================
+Test: High Volatility
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   25.776226
+Put Option Price:    20.930138
+Put-Call Parity Check:
+  C - P = 4.846088
+  S - K*e^(-rT) = 4.877052
+  Error = 0.030964
+  Status: PASS (Error < 0.1)
+========================================
+
+Running Test 6: Low Volatility Scenario...
+
+========================================
+Test: Low Volatility
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   10.354547
+Put Option Price:    5.556574
+Put-Call Parity Check:
+  C - P = 4.797973
+  S - K*e^(-rT) = 4.877052
+  Error = 0.079080
+  Status: PASS (Error < 0.1)
+========================================
+
+
+***************************************
+* Test Summary
+***************************************
+Total Tests: 6
+Passed:      6
+Failed:      0
+***************************************
+
+All tests PASSED!
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 74.13 seconds. CPU system time: 0.28 seconds. Elapsed time: 74.41 seconds; current allocated memory: 0.082 MB.
+================================================
+Running C Synthesis...
+================================================
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 220.008 MB.
+INFO: [HLS 200-10] Analyzing design file 'common/volatilityData.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'common/stockData.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'common/RNG.cpp' ... 
+WARNING: [HLS 207-5292] unused parameter 'size' (common/RNG.cpp:49:54)
+INFO: [HLS 200-10] Analyzing design file 'hestonEuro.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.49 seconds. CPU system time: 1.42 seconds. Elapsed time: 3.91 seconds; current allocated memory: 222.902 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 31,385 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 9,732 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,880 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,761 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,978 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,504 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,872 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,872 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,872 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,912 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,848 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,842 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,842 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,842 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,868 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 2,888 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-131] Inlining function 'RNG::extract_number(unsigned int*, unsigned int*)' into 'RNG::BOX_MULLER(float*, float*, float)' (common/RNG.cpp:137:2)
+INFO: [HLS 214-131] Inlining function 'RNG::BOX_MULLER(float*, float*, float)' into 'heston::sampleSIM(RNG*, float*, float*)' (hestonEuro.cpp:123:12)
+WARNING: [HLS 214-386] A depth specification is required for MAXI interface port 'pCall' for cosimulation. (hestonEuro.cpp:14:0)
+WARNING: [HLS 214-386] A depth specification is required for MAXI interface port 'pPut' for cosimulation. (hestonEuro.cpp:14:0)
+INFO: [HLS 214-291] Loop 'loop_parallel' is marked as complete unroll implied by the pipeline pragma (hestonEuro.cpp:120:16)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41)
+INFO: [HLS 214-291] Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma
+INFO: [HLS 214-186] Unrolling loop 'loop_final_sum' (hestonEuro.cpp:155:17) in function 'heston::sampleSIM' completely with a factor of 4 (hestonEuro.cpp:71:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_parallel' (hestonEuro.cpp:120:16) in function 'heston::sampleSIM' completely with a factor of 4 (hestonEuro.cpp:71:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_sum_r' (hestonEuro.cpp:137:15) in function 'heston::sampleSIM' completely with a factor of 4 (hestonEuro.cpp:71:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_105_2' (hestonEuro.cpp:105:21) in function 'heston::sampleSIM' completely with a factor of 4 (hestonEuro.cpp:71:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_97_1' (hestonEuro.cpp:97:19) in function 'heston::sampleSIM' completely with a factor of 4 (hestonEuro.cpp:71:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5) in function 'scaled_fixed2ieee<29, 1>' completely with a factor of 2 (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5) in function 'scaled_fixed2ieee<29, 1>' completely with a factor of 2 (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5) in function 'scaled_fixed2ieee<29, 1>' completely with a factor of 1 (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41) in function 'scaled_fixed2ieee<29, 1>' completely with a factor of 2 (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-186] Unrolling loop 'anonymous' () in function 'scaled_fixed2ieee<29, 1>' completely with a factor of 1 (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_group_init' (common/RNG.cpp:66:19) in function 'RNG::init_array' completely with a factor of 4 (common/RNG.cpp:50:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_set_seed' (common/RNG.cpp:54:16) in function 'RNG::init_array' completely with a factor of 4 (common/RNG.cpp:50:0)
+INFO: [HLS 214-178] Inlining function 'stockData::stockData(stockData const&)' into 'heston::heston(stockData, volData)' (hestonEuro.cpp:47:0)
+INFO: [HLS 214-178] Inlining function 'volData::volData(volData const&)' into 'heston::heston(stockData, volData)' (hestonEuro.cpp:47:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'int generic_isnan<float>(float)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:16:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::data() const (.41.48.54.62)' into 'fp_struct<float>::to_float() const (.69.76.84.92)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:322:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_float() const (.69.76.84.92)' into 'fp_struct<float>::to_ieee() const' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:346:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::data() const (.41.48.54.62)' into 'fp_struct<float>::to_int() const' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:319:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'int generic_isnan<float>(float)' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_int() const' into 'float generic_fmax<float>(float, float)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::expv() const' into 'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<(((2) * ((23) + (1))) + (29)) + (3)> table_lookup_4oPi_hotbm<23, 29>(int, float)' into 'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0)
+INFO: [HLS 214-178] Inlining function 'unsigned int clz<29, 58, 0>(ap_ufixed<58, 0, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0)
+INFO: [HLS 214-178] Inlining function 'clz(int) (.214)' into 'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::set_mantissa(ap_ufixed<24, 1, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::fp_struct(float)' into 'float hotbm_::sin_or_cos<float>(float, bool, bool)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0)
+INFO: [HLS 214-178] Inlining function 'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)' into 'float hotbm_::sin_or_cos<float>(float, bool, bool)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0)
+INFO: [HLS 214-178] Inlining function 'ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0> hotbm_::value_list<float>::sin_or_cos_approximation<29, 29>(bool, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<8>&)' into 'float hotbm_::sin_or_cos<float>(float, bool, bool)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0)
+INFO: [HLS 214-178] Inlining function 'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)' into 'float hotbm_::sin_or_cos<float>(float, bool, bool)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0)
+INFO: [HLS 214-178] Inlining function 'fp_struct<float>::to_ieee() const' into 'float hotbm_::sin_or_cos<float>(float, bool, bool)' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0)
+INFO: [HLS 214-178] Inlining function 'hotbm_::cos(float)' into 'cosf' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp:11:0)
+INFO: [HLS 214-178] Inlining function 'hotbm_::sin(float)' into 'sinf' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp:7:0)
+INFO: [HLS 214-178] Inlining function 'fmaxf' into 'heston::sampleSIM(RNG*, float*, float*)' (hestonEuro.cpp:71:0)
+INFO: [HLS 214-178] Inlining function 'RNG::increase(int)' into 'heston::sampleSIM(RNG*, float*, float*)' (hestonEuro.cpp:71:0)
+INFO: [HLS 214-178] Inlining function 'cosf' into 'heston::sampleSIM(RNG*, float*, float*)' (hestonEuro.cpp:71:0)
+INFO: [HLS 214-178] Inlining function 'sinf' into 'heston::sampleSIM(RNG*, float*, float*)' (hestonEuro.cpp:71:0)
+INFO: [HLS 214-178] Inlining function 'RNG::init_array(RNG*, unsigned int*, int)' into 'heston::simulation(float*, float*)' (hestonEuro.cpp:52:0)
+INFO: [HLS 214-178] Inlining function 'volData::volData(float, float, float, float, float)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)' (hestonEuro.cpp:14:0)
+INFO: [HLS 214-178] Inlining function 'stockData::stockData(float, float, float, float, float)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)' (hestonEuro.cpp:14:0)
+INFO: [HLS 214-178] Inlining function 'stockData::stockData(stockData const&)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)' (hestonEuro.cpp:14:0)
+INFO: [HLS 214-178] Inlining function 'volData::volData(volData const&)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)' (hestonEuro.cpp:14:0)
+INFO: [HLS 214-178] Inlining function 'heston::heston(stockData, volData)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)' (hestonEuro.cpp:14:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN6hotbm_10value_listIfE24sin_or_cos_approximationILi29ELi29EEE9ap_ufixedIXT_ELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEbR7ap_uintILi3EERS3_IXT_ELi0ELS4_5ELS5_3ELi0EERS3_IXT0_ELi0ELS4_5ELS5_3ELi0EER6ap_intILi8EEE10swap_table': Complete partitioning on dimension 1. (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp:14:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_cos_table': Complete partitioning on dimension 1. (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:217:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_sin_table': Complete partitioning on dimension 1. (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:216:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE10swap_table': Complete partitioning on dimension 1. (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:215:0)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp:25:67)
+INFO: [HLS 214-248] Applying array_partition to 'stockPrice': Complete partitioning on dimension 1. (hestonEuro.cpp:87:9)
+INFO: [HLS 214-248] Applying array_partition to 'vols': Complete partitioning on dimension 1. (hestonEuro.cpp:90:9)
+INFO: [HLS 214-248] Applying array_partition to 'pVols': Complete partitioning on dimension 1. (hestonEuro.cpp:90:39)
+INFO: [HLS 214-248] Applying array_partition to 'mt_rng.index': Complete partitioning on dimension 1. (hestonEuro.cpp:54:6)
+INFO: [HLS 214-248] Applying array_partition to 'mt_rng.seed': Complete partitioning on dimension 1. (hestonEuro.cpp:54:6)
+INFO: [HLS 214-248] Applying array_partition to 'mt_rng.mt_e': Complete partitioning on dimension 1. (hestonEuro.cpp:54:6)
+INFO: [HLS 214-248] Applying array_partition to 'mt_rng.mt_o': Complete partitioning on dimension 1. (hestonEuro.cpp:54:6)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.84 seconds. CPU system time: 0.57 seconds. Elapsed time: 6.65 seconds; current allocated memory: 226.102 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 226.102 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 231.672 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 236.969 MB.
+INFO: [XFORM 203-102] Automatically partitioning small array 'stockPrice' (hestonEuro.cpp:87) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'stockPrice.1' (hestonEuro.cpp:87) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'stockPrice.2' (hestonEuro.cpp:87) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'stockPrice.3' (hestonEuro.cpp:87) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'vols' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'vols.1' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'vols.2' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'vols.3' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pVols' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pVols.1' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pVols.2' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pVols.3' (hestonEuro.cpp:90) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'stockPrice' (hestonEuro.cpp:87) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'stockPrice.1' (hestonEuro.cpp:87) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'stockPrice.2' (hestonEuro.cpp:87) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'stockPrice.3' (hestonEuro.cpp:87) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'vols' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'vols.1' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'vols.2' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'vols.3' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pVols' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pVols.1' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pVols.2' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pVols.3' (hestonEuro.cpp:90) in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:288:31) to (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:287:5) in function 'hotbm_::sin_or_cos<float>'... converting 13 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:288:31) to (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:42:3) in function 'generic_fmax<float>'... converting 4 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 264.555 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'loop_path'(hestonEuro.cpp:115:13) and 'loop_share'(hestonEuro.cpp:117:15) in function 'heston::sampleSIM' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_path' (hestonEuro.cpp:115:13) in function 'heston::sampleSIM'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.21 seconds; current allocated memory: 316.797 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'hestonEuro' ...
+WARNING: [SYN 201-103] Legalizing function name 'generic_fmax<float>' to 'generic_fmax_float_s'.
+WARNING: [SYN 201-103] Legalizing function name 'sin_or_cos<float>' to 'sin_or_cos_float_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'generic_fmax_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'generic_fmax<float>'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'generic_fmax<float>'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.12 seconds; current allocated memory: 317.703 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 317.801 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sin_or_cos_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'sin_or_cos<float>'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, function 'sin_or_cos<float>'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 319.730 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 319.730 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sampleSIM_Pipeline_loop_path_loop_share' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_3'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_3'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_2'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_2'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_1'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_1'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_0'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_0'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'loop_path_loop_share'.
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'fadd' operation 32 bit ('stockPrice[2]', hestonEuro.cpp:126) and 'mux' operation 32 bit ('tmp_42', hestonEuro.cpp:126).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'fadd' operation 32 bit ('stockPrice[2]', hestonEuro.cpp:126) and 'mux' operation 32 bit ('tmp_42', hestonEuro.cpp:126).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'fadd' operation 32 bit ('stockPrice[2]', hestonEuro.cpp:126) and 'mux' operation 32 bit ('tmp_42', hestonEuro.cpp:126).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'fmul' operation 32 bit ('pVols[2]', hestonEuro.cpp:129) and 'mux' operation 32 bit ('deviation', hestonEuro.cpp:123).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 19, distance = 1, offset = 1) between 'fmul' operation 32 bit ('pVols[2]', hestonEuro.cpp:129) and 'mux' operation 32 bit ('deviation', hestonEuro.cpp:123).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 27, distance = 1, offset = 1) between 'fmul' operation 32 bit ('pVols[2]', hestonEuro.cpp:129) and 'mux' operation 32 bit ('deviation', hestonEuro.cpp:123).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'sampleSIM_Pipeline_loop_path_loop_share' (loop 'loop_path_loop_share'): Unable to enforce a carried dependence constraint (II = 29, distance = 1, offset = 1) between 'fmul' operation 32 bit ('pVols[2]', hestonEuro.cpp:129) and 'mux' operation 32 bit ('deviation', hestonEuro.cpp:123).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 30, Depth = 56, loop 'loop_path_loop_share'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.46 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.46 seconds; current allocated memory: 330.320 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 330.320 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sampleSIM' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 340.492 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 340.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'simulation' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_3'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_2'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o_1'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_o'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_3'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_2'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e_1'. Use bind_storage pragma to override this type.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'mt_rng_mt_e'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 340.492 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 340.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hestonEuro' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 340.492 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 340.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'generic_fmax_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'generic_fmax_float_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 340.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sin_or_cos_float_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'sin_or_cos_float_s' pipeline 'sin_or_cos<float>' pipeline type 'function pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_15ns_15ns_30_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_15ns_15s_30_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_23s_22ns_45_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_30s_29ns_58_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_80s_24ns_80_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_17_3_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_33_4_1_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sin_or_cos_float_s'.
+INFO: [RTMG 210-279] Implementing memory 'hestonEuro_sin_or_cos_float_s_ref_4oPi_table_100_ROM_1P_LUTRAM_1R' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K0_ROM_1P_LUTRAM_1R' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K1_ROM_1P_LUTRAM_1R' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K2_ROM_1P_LUTRAM_1R' using distributed ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 340.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sampleSIM_Pipeline_loop_path_loop_share' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'sampleSIM_Pipeline_loop_path_loop_share' pipeline 'loop_path_loop_share' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'sampleSIM_Pipeline_loop_path_loop_share' is 5230 from HDL expression: ap_rst
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_4_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'flog_32ns_32ns_32_9_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_3_max_dsp_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_8_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_4_2_32_1_1': 12 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'uitofp_32ns_32_4_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sampleSIM_Pipeline_loop_path_loop_share'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 350.172 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sampleSIM' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'sampleSIM' is 7786 from HDL expression: ap_rst
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_4_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_4_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_9_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fexp_32ns_32ns_32_8_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'flog_32ns_32ns_32_9_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_3_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_8_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_4_2_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sampleSIM'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.25 seconds; current allocated memory: 374.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'simulation' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32ns_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'simulation'.
+INFO: [RTMG 210-278] Implementing memory 'hestonEuro_simulation_mt_rng_mt_e_RAM_1WNR_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.18 seconds; current allocated memory: 393.133 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hestonEuro' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/pCall' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/pPut' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/expect_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/kappa' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/variance' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/correlation' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/timeT' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/freeRate' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/volatility' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/initPrice' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hestonEuro/strikePrice' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hestonEuro' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'pCall', 'pPut', 'expect_r', 'kappa', 'variance', 'correlation', 'timeT', 'freeRate', 'volatility', 'initPrice', 'strikePrice' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hestonEuro'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 394.746 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.12 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.14 seconds; current allocated memory: 397.801 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.44 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.46 seconds; current allocated memory: 408.691 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for hestonEuro.
+INFO: [VLOG 209-307] Generating Verilog RTL for hestonEuro.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 130.79 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 7.21 seconds. CPU system time: 2.24 seconds. Elapsed time: 13.72 seconds; current allocated memory: 189.824 MB.
+================================================
+Running C/RTL Co-simulation...
+================================================
+================================================
+Exporting RTL Design...
+================================================
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog -output ./export_ip 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/jbonfigs/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_flog_32ns_32ns_32_9_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_flog_32ns_32ns_32_9_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'hestonEuro_uitofp_32ns_32_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'hestonEuro_uitofp_32ns_32_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/jbonfigs/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 10 19:26:03 2025...
+INFO: [HLS 200-802] Generated output file export_ip.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 7.88 seconds. CPU system time: 0.64 seconds. Elapsed time: 18.08 seconds; current allocated memory: 5.156 MB.
+================================================
+Generating Reports...
+================================================
+
+--- Resource Utilization ---
+Check the generated report: hestonEuro_hls/solution1/syn/report/hestonEuro_csynth.rpt
+
+--- Timing Information ---
+Check the generated report: hestonEuro_hls/solution1/syn/report/hestonEuro_csynth.rpt
+================================================
+HLS Flow Complete!
+================================================
+Results available in: hestonEuro_hls/solution1/
+================================================
+INFO: [HLS 200-112] Total CPU user time: 89.82 seconds. Total CPU system time: 3.36 seconds. Total elapsed time: 106.92 seconds; peak allocated memory: 414.566 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Mon Nov 10 19:26:13 2025...

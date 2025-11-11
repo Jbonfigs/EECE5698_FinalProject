@@ -1,0 +1,363 @@
+
+
+================================================================
+== Synthesis Summary Report of 'hestonEuro'
+================================================================
++ General Information: 
+    * Date:           Mon Nov 10 19:25:54 2025
+    * Version:        2023.2 (Build 4023990 on Oct 11 2023)
+    * Project:        hestonEuro_hls
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+    |                    Modules                    |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |          |          |            |            |     |
+    |                    & Loops                    |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|   BRAM   |    DSP   |     FF     |     LUT    | URAM|
+    +-----------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+    |+ hestonEuro                                   |  Timing|  -0.35|  4075259|  4.075e+07|         -|  4075260|     -|        no|   20 (1%)|   62 (2%)|  18049 (3%)|  18974 (6%)|    -|
+    | + simulation                                  |  Timing|  -0.35|  4075188|  4.075e+07|         -|  4075188|     -|        no|  16 (~0%)|   62 (2%)|  16148 (2%)|  16974 (6%)|    -|
+    |  + sampleSIM                                  |  Timing|  -0.35|  4074561|  4.075e+07|         -|  4074561|     -|        no|         -|   50 (1%)|  15804 (2%)|  15597 (5%)|    -|
+    |   + generic_fmax_float_s                      |      II|   5.93|        0|      0.000|         -|        1|     -|       yes|         -|         -|           -|   102 (~0%)|    -|
+    |   o loop_init                                 |       -|   7.30|        4|     40.000|         1|        -|     4|        no|         -|         -|           -|           -|    -|
+    |   o loop_main                                 |       -|   7.30|  4074496|  4.074e+07|      7958|        -|   512|        no|         -|         -|           -|           -|    -|
+    |    + sampleSIM_Pipeline_loop_path_loop_share  |  Timing|  -0.35|     7706|  7.706e+04|         -|     7706|     -|        no|         -|  20 (~0%)|   6538 (1%)|  10024 (3%)|    -|
+    |     o loop_path_loop_share                    |      II|   7.30|     7704|  7.704e+04|        55|       30|   256|       yes|         -|         -|           -|           -|    -|
+    |      + sin_or_cos_float_s                     |      II|   0.53|        5|     50.000|         -|        1|     -|       yes|         -|  13 (~0%)|   854 (~0%)|  2400 (~0%)|    -|
+    |      + generic_fmax_float_s                   |      II|   5.93|        0|      0.000|         -|        1|     -|       yes|         -|         -|           -|   102 (~0%)|    -|
+    |    o loop_sum                                 |       -|   7.30|      248|  2.480e+03|        62|        -|     4|        no|         -|         -|           -|           -|    -|
+    |  o loop_seed_init                             |       -|   7.30|      624|  6.240e+03|         2|        -|   312|        no|         -|         -|           -|           -|    -|
+    +-----------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+----------+----------+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 32 -> 32   | 64            | 64      | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=4            |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register    | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL        | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER        | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER      | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR      | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | pCall_1     | 0x10   | 32    | W      | Data signal of pCall             |                                                                      |
+| s_axi_control | pCall_2     | 0x14   | 32    | W      | Data signal of pCall             |                                                                      |
+| s_axi_control | pPut_1      | 0x1c   | 32    | W      | Data signal of pPut              |                                                                      |
+| s_axi_control | pPut_2      | 0x20   | 32    | W      | Data signal of pPut              |                                                                      |
+| s_axi_control | expect_r    | 0x28   | 32    | W      | Data signal of expect_r          |                                                                      |
+| s_axi_control | kappa       | 0x30   | 32    | W      | Data signal of kappa             |                                                                      |
+| s_axi_control | variance    | 0x38   | 32    | W      | Data signal of variance          |                                                                      |
+| s_axi_control | correlation | 0x40   | 32    | W      | Data signal of correlation       |                                                                      |
+| s_axi_control | timeT       | 0x48   | 32    | W      | Data signal of timeT             |                                                                      |
+| s_axi_control | freeRate    | 0x50   | 32    | W      | Data signal of freeRate          |                                                                      |
+| s_axi_control | volatility  | 0x58   | 32    | W      | Data signal of volatility        |                                                                      |
+| s_axi_control | initPrice   | 0x60   | 32    | W      | Data signal of initPrice         |                                                                      |
+| s_axi_control | strikePrice | 0x68   | 32    | W      | Data signal of strikePrice       |                                                                      |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------+-----------+----------+
+| Argument    | Direction | Datatype |
++-------------+-----------+----------+
+| pCall       | out       | float*   |
+| pPut        | out       | float*   |
+| expect      | in        | float    |
+| kappa       | in        | float    |
+| variance    | in        | float    |
+| correlation | in        | float    |
+| timeT       | in        | float    |
+| freeRate    | in        | float    |
+| volatility  | in        | float    |
+| initPrice   | in        | float    |
+| strikePrice | in        | float    |
++-------------+-----------+----------+
+
+* SW-to-HW Mapping
++-------------+---------------+-----------+----------+---------------------------------------+
+| Argument    | HW Interface  | HW Type   | HW Usage | HW Info                               |
++-------------+---------------+-----------+----------+---------------------------------------+
+| pCall       | m_axi_gmem    | interface |          |                                       |
+| pCall       | s_axi_control | register  | offset   | name=pCall_1 offset=0x10 range=32     |
+| pCall       | s_axi_control | register  | offset   | name=pCall_2 offset=0x14 range=32     |
+| pPut        | m_axi_gmem    | interface |          |                                       |
+| pPut        | s_axi_control | register  | offset   | name=pPut_1 offset=0x1c range=32      |
+| pPut        | s_axi_control | register  | offset   | name=pPut_2 offset=0x20 range=32      |
+| expect      | s_axi_control | interface |          |                                       |
+| kappa       | s_axi_control | register  |          | name=kappa offset=0x30 range=32       |
+| variance    | s_axi_control | register  |          | name=variance offset=0x38 range=32    |
+| correlation | s_axi_control | register  |          | name=correlation offset=0x40 range=32 |
+| timeT       | s_axi_control | register  |          | name=timeT offset=0x48 range=32       |
+| freeRate    | s_axi_control | register  |          | name=freeRate offset=0x50 range=32    |
+| volatility  | s_axi_control | register  |          | name=volatility offset=0x58 range=32  |
+| initPrice   | s_axi_control | register  |          | name=initPrice offset=0x60 range=32   |
+| strikePrice | s_axi_control | register  |          | name=strikePrice offset=0x68 range=32 |
++-------------+---------------+-----------+----------+---------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++----------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| Name                                         | DSP | Pragma | Variable        | Op    | Impl    | Latency |
++----------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+| + hestonEuro                                 | 62  |        |                 |       |         |         |
+|  + simulation                                | 62  |        |                 |       |         |         |
+|    add_ln64_fu_357_p2                        |     |        | add_ln64        | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U261                  | 3   |        | mul_ln70        | mul   | auto    | 0       |
+|    add_ln70_fu_430_p2                        |     |        | add_ln70        | add   | fabric  | 0       |
+|    add_ln72_fu_606_p2                        |     |        | add_ln72        | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U261                  | 3   |        | mul_ln72        | mul   | auto    | 0       |
+|    add_ln72_1_fu_615_p2                      |     |        | add_ln72_1      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U262                  | 3   |        | mul_ln70_1      | mul   | auto    | 0       |
+|    add_ln70_1_fu_478_p2                      |     |        | add_ln70_1      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U262                  | 3   |        | mul_ln72_1      | mul   | auto    | 0       |
+|    add_ln72_2_fu_621_p2                      |     |        | add_ln72_2      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U263                  | 3   |        | mul_ln70_2      | mul   | auto    | 0       |
+|    add_ln70_2_fu_526_p2                      |     |        | add_ln70_2      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U263                  | 3   |        | mul_ln72_2      | mul   | auto    | 0       |
+|    add_ln72_3_fu_627_p2                      |     |        | add_ln72_3      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U264                  | 3   |        | mul_ln70_3      | mul   | auto    | 0       |
+|    add_ln70_3_fu_574_p2                      |     |        | add_ln70_3      | add   | fabric  | 0       |
+|    mul_32s_32ns_32_1_1_U264                  | 3   |        | mul_ln72_3      | mul   | auto    | 0       |
+|    add_ln72_4_fu_633_p2                      |     |        | add_ln72_4      | add   | fabric  | 0       |
+|   + sampleSIM                                | 50  |        |                 |       |         |         |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | Dt              | fmul  | maxdsp  | 2       |
+|     fdiv_32ns_32ns_32_9_no_dsp_1_U227        |     |        | div             | fdiv  | fabric  | 8       |
+|     flog_32ns_32ns_32_9_full_dsp_1_U230      | 13  |        | logPrice        | flog  | fulldsp | 8       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | volInit         | fmul  | maxdsp  | 2       |
+|     add_ln103_fu_2951_p2                     |     |        | add_ln103       | add   | fabric  | 0       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | mul9            | fmul  | maxdsp  | 2       |
+|     flog_32ns_32ns_32_9_full_dsp_1_U230      | 2   |        | x_assign        | fsub  | fulldsp | 3       |
+|     fsqrt_32ns_32ns_32_8_no_dsp_1_U229       |     |        | ratio2          | fsqrt | fabric  | 7       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | mul2            | fmul  | maxdsp  | 2       |
+|     fsqrt_32ns_32ns_32_8_no_dsp_1_U229       | 3   |        | ratio3          | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U226       | 3   |        | ratio4          | fmul  | maxdsp  | 2       |
+|     j_2_fu_3684_p2                           |     |        | j_2             | add   | fabric  | 0       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       |     |        | add_ln135       | add   | fabric  | 0       |
+|     fexp_32ns_32ns_32_8_full_dsp_1_U231      | 7   |        | tmp_14          | fexp  | fulldsp | 7       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | payoff          | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | add3            | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | sub2            | fsub  | fulldsp | 3       |
+|     fexp_32ns_32ns_32_8_full_dsp_1_U231      | 7   |        | tmp_15          | fexp  | fulldsp | 7       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | payoff_1        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | add171_1        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | sub174_1        | fsub  | fulldsp | 3       |
+|     fexp_32ns_32ns_32_8_full_dsp_1_U231      | 7   |        | tmp_16          | fexp  | fulldsp | 7       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | payoff_2        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | add171_2        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | sub174_2        | fsub  | fulldsp | 3       |
+|     fexp_32ns_32ns_32_8_full_dsp_1_U231      | 7   |        | tmp_17          | fexp  | fulldsp | 7       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | payoff_3        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | add171_3        | fsub  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | sub174_3        | fsub  | fulldsp | 3       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | mul             | fmul  | maxdsp  | 2       |
+|     fexp_32ns_32ns_32_8_full_dsp_1_U231      | 7   |        | tmp_13          | fexp  | fulldsp | 7       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | ratio1          | fmul  | maxdsp  | 2       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | fCall           | fsub  | fulldsp | 3       |
+|     fadd_32ns_32ns_32_4_full_dsp_1_U224      | 2   |        | fPut            | fadd  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | fCall_1         | fsub  | fulldsp | 3       |
+|     fadd_32ns_32ns_32_4_full_dsp_1_U224      | 2   |        | fPut_1          | fadd  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | fCall_2         | fsub  | fulldsp | 3       |
+|     fadd_32ns_32ns_32_4_full_dsp_1_U224      | 2   |        | fPut_2          | fadd  | fulldsp | 3       |
+|     faddfsub_32ns_32ns_32_4_full_dsp_1_U223  | 2   |        | fCall_3         | fsub  | fulldsp | 3       |
+|     fadd_32ns_32ns_32_4_full_dsp_1_U224      | 2   |        | fPut_3          | fadd  | fulldsp | 3       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | mul3            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | div1            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | div2            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U225       | 3   |        | call            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U226       | 3   |        | mul4            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U226       | 3   |        | div4            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U226       | 3   |        | div5            | fmul  | maxdsp  | 2       |
+|     fmul_32ns_32ns_32_3_max_dsp_1_U226       | 3   |        | put             | fmul  | maxdsp  | 2       |
+|    + sampleSIM_Pipeline_loop_path_loop_share | 20  |        |                 |       |         |         |
+|      add_ln115_fu_2820_p2                    |     |        | add_ln115       | add   | fabric  | 0       |
+|      tmp_133_fu_2854_p2                      |     |        | tmp_133         | add   | fabric  | 0       |
+|      add_ln127_fu_2866_p2                    |     |        | add_ln127       | add   | fabric  | 0       |
+|      tmp_135_fu_2880_p2                      |     |        | tmp_135         | add   | fabric  | 0       |
+|      add_ln127_1_fu_2896_p2                  |     |        | add_ln127_1     | add   | fabric  | 0       |
+|      tmp_136_fu_2910_p2                      |     |        | tmp_136         | add   | fabric  | 0       |
+|      add_ln127_2_fu_2926_p2                  |     |        | add_ln127_2     | add   | fabric  | 0       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | sub3            | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add             | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul7            | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | sub4            | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add4            | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add5            | fsub  | fulldsp | 3       |
+|      tmp_163_fu_2984_p2                      |     |        | tmp_163         | add   | fabric  | 0       |
+|      add_ln127_3_fu_2996_p2                  |     |        | add_ln127_3     | add   | fabric  | 0       |
+|      tmp_164_fu_3010_p2                      |     |        | tmp_164         | add   | fabric  | 0       |
+|      add_ln127_4_fu_3026_p2                  |     |        | add_ln127_4     | add   | fabric  | 0       |
+|      tmp_166_fu_3040_p2                      |     |        | tmp_166         | add   | fabric  | 0       |
+|      add_ln127_5_fu_3056_p2                  |     |        | add_ln127_5     | add   | fabric  | 0       |
+|      tmp_167_fu_3090_p2                      |     |        | tmp_167         | add   | fabric  | 0       |
+|      add_ln127_6_fu_3102_p2                  |     |        | add_ln127_6     | add   | fabric  | 0       |
+|      tmp_169_fu_3116_p2                      |     |        | tmp_169         | add   | fabric  | 0       |
+|      add_ln127_7_fu_3132_p2                  |     |        | add_ln127_7     | add   | fabric  | 0       |
+|      tmp_173_fu_3146_p2                      |     |        | tmp_173         | add   | fabric  | 0       |
+|      add_ln127_8_fu_3162_p2                  |     |        | add_ln127_8     | add   | fabric  | 0       |
+|      tmp_175_fu_3196_p2                      |     |        | tmp_175         | add   | fabric  | 0       |
+|      add_ln127_9_fu_3208_p2                  |     |        | add_ln127_9     | add   | fabric  | 0       |
+|      tmp_176_fu_3222_p2                      |     |        | tmp_176         | add   | fabric  | 0       |
+|      add_ln127_10_fu_3238_p2                 |     |        | add_ln127_10    | add   | fabric  | 0       |
+|      tmp_178_fu_3252_p2                      |     |        | tmp_178         | add   | fabric  | 0       |
+|      add_ln127_11_fu_3268_p2                 |     |        | add_ln127_11    | add   | fabric  | 0       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | vols_0_11       | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | stockPrice_0_11 | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | sub94_1         | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul100_1        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | add_1           | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | vols_0_10       | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul110_1        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | sub111_1        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add119_1        | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul124_1        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add125_1        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | stockPrice_0_10 | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | sub94_2         | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul100_2        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | add_2           | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | vols_0_9        | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul110_2        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | sub111_2        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add119_2        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add125_2        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | stockPrice_0_9  | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul7_i_3        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | sub94_3         | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul100_3        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | add_3           | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | vols_0_8        | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul110_3        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | sub111_3        | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul118_3        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U25  | 2   |        | add119_3        | fsub  | fulldsp | 3       |
+|      fmul_32ns_32ns_32_3_max_dsp_1_U28       | 3   |        | mul124_3        | fmul  | maxdsp  | 2       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | add125_3        | fsub  | fulldsp | 3       |
+|      faddfsub_32ns_32ns_32_4_full_dsp_1_U24  | 2   |        | stockPrice_0_8  | fsub  | fulldsp | 3       |
+|      add_ln117_fu_6222_p2                    |     |        | add_ln117       | add   | fabric  | 0       |
+|     + sin_or_cos_float_s                     | 13  |        |                 |       |         |         |
+|       Ex_fu_504_p2                           |     |        | Ex              | add   | fabric  | 0       |
+|       add_ln376_fu_330_p2                    |     |        | add_ln376       | add   | fabric  | 0       |
+|       mul_80s_24ns_80_1_1_U4                 | 5   |        | h               | mul   | auto    | 0       |
+|       Mx_bits_1_fu_433_p2                    |     |        | Mx_bits_1       | sub   | fabric  | 0       |
+|       Ex_1_fu_543_p2                         |     |        | Ex_1            | sub   | fabric  | 0       |
+|       sub_ln506_fu_557_p2                    |     |        | sub_ln506       | sub   | fabric  | 0       |
+|       mul_15ns_15ns_30_1_1_U8                | 1   |        | mul_ln23        | mul   | auto    | 0       |
+|       mul_23s_22ns_45_1_1_U2                 | 2   |        | mul_ln29        | mul   | auto    | 0       |
+|       mul_15ns_15s_30_1_1_U9                 | 1   |        | mul_ln30        | mul   | auto    | 0       |
+|       mul_30s_29ns_58_1_1_U3                 | 4   |        | mul_ln32        | mul   | auto    | 0       |
+|       add_ln290_fu_1126_p2                   |     |        | add_ln290       | add   | fabric  | 0       |
+|       add_ln300_fu_1150_p2                   |     |        | add_ln300       | add   | fabric  | 0       |
+|       newexp_fu_1160_p2                      |     |        | newexp          | sub   | fabric  | 0       |
++----------------------------------------------+-----+--------+-----------------+-------+---------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++----------------------------------------------+--------------+-----------+------+------+--------+-------------------------------+--------+---------+------------------+
+| Name                                         | Usage        | Type      | BRAM | URAM | Pragma | Variable                      | Impl   | Latency | Bitwidth, Depth, |
+|                                              |              |           |      |      |        |                               |        |         | Banks            |
++----------------------------------------------+--------------+-----------+------+------+--------+-------------------------------+--------+---------+------------------+
+| + hestonEuro                                 |              |           | 20   | 0    |        |                               |        |         |                  |
+|   control_s_axi_U                            | interface    | s_axilite |      |      |        |                               |        |         |                  |
+|   gmem_m_axi_U                               | interface    | m_axi     | 4    |      |        |                               |        |         |                  |
+|  + simulation                                |              |           | 16   | 0    |        |                               |        |         |                  |
+|    mt_rng_mt_e_U                             | rom_np array |           | 2    |      |        | mt_rng_mt_e                   | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_e_1_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_e_1                 | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_e_2_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_e_2                 | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_e_3_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_e_3                 | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_o_U                             | rom_np array |           | 2    |      |        | mt_rng_mt_o                   | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_o_1_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_o_1                 | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_o_2_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_o_2                 | auto   | 1       | 32, 312, 1       |
+|    mt_rng_mt_o_3_U                           | rom_np array |           | 2    |      |        | mt_rng_mt_o_3                 | auto   | 1       | 32, 312, 1       |
+|   + sampleSIM                                |              |           | 0    | 0    |        |                               |        |         |                  |
+|    + sampleSIM_Pipeline_loop_path_loop_share |              |           | 0    | 0    |        |                               |        |         |                  |
+|     + sin_or_cos_float_s                     |              |           | 0    | 0    |        |                               |        |         |                  |
+|       ref_4oPi_table_100_U                   | rom_1p       |           |      |      | pragma | ref_4oPi_table_100            | lutram | 1       | 100, 13, 1       |
+|       second_order_float_sin_cos_K0_U        | rom_1p       |           |      |      | pragma | second_order_float_sin_cos_K0 | lutram | 1       | 30, 256, 1       |
+|       second_order_float_sin_cos_K1_U        | rom_1p       |           |      |      | pragma | second_order_float_sin_cos_K1 | lutram | 1       | 23, 256, 1       |
+|       second_order_float_sin_cos_K2_U        | rom_1p       |           |      |      | pragma | second_order_float_sin_cos_K2 | lutram | 1       | 15, 256, 1       |
++----------------------------------------------+--------------+-----------+------+------+--------+-------------------------------+--------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-------------------------------------------+----------------------------------------------+
+| Type            | Options                                   | Location                                     |
++-----------------+-------------------------------------------+----------------------------------------------+
+| array_partition | variable=tmp complete dim=1               | common/RNG.cpp:52 in init_array, tmp         |
+| unroll          |                                           | common/RNG.cpp:56 in init_array              |
+| unroll          |                                           | common/RNG.cpp:68 in init_array              |
+| inline          |                                           | common/RNG.cpp:80 in extract_number          |
+| inline          |                                           | common/RNG.cpp:133 in box_muller             |
+| inline          |                                           | common/RNG.cpp:155 in box_muller             |
+| interface       | m_axi port=pCall bundle=gmem              | hestonEuro.cpp:15 in hestoneuro, pCall       |
+| interface       | s_axilite port=pCall bundle=control       | hestonEuro.cpp:16 in hestoneuro, pCall       |
+| interface       | m_axi port=pPut bundle=gmem               | hestonEuro.cpp:17 in hestoneuro, pPut        |
+| interface       | s_axilite port=pPut bundle=control        | hestonEuro.cpp:18 in hestoneuro, pPut        |
+| interface       | s_axilite port=correlation bundle=control | hestonEuro.cpp:19 in hestoneuro, correlation |
+| interface       | s_axilite port=variance bundle=control    | hestonEuro.cpp:20 in hestoneuro, variance    |
+| interface       | s_axilite port=kappa bundle=control       | hestonEuro.cpp:21 in hestoneuro, kappa       |
+| interface       | s_axilite port=expect bundle=control      | hestonEuro.cpp:22 in hestoneuro, expect      |
+| interface       | s_axilite port=timeT bundle=control       | hestonEuro.cpp:23 in hestoneuro, timeT       |
+| interface       | s_axilite port=freeRate bundle=control    | hestonEuro.cpp:24 in hestoneuro, freeRate    |
+| interface       | s_axilite port=volatility bundle=control  | hestonEuro.cpp:25 in hestoneuro, volatility  |
+| interface       | s_axilite port=initPrice bundle=control   | hestonEuro.cpp:26 in hestoneuro, initPrice   |
+| interface       | s_axilite port=strikePrice bundle=control | hestonEuro.cpp:27 in hestoneuro, strikePrice |
+| interface       | s_axilite port=return bundle=control      | hestonEuro.cpp:28 in hestoneuro, return      |
+| array_partition | variable=mt_rng complete dim=1            | hestonEuro.cpp:55 in simulation, mt_rng      |
+| array_partition | variable=seeds complete dim=1             | hestonEuro.cpp:58 in simulation, seeds       |
+| unroll          |                                           | hestonEuro.cpp:62 in simulation              |
+| array_partition | variable=sCall complete dim=1             | hestonEuro.cpp:84 in samplesim, sCall        |
+| array_partition | variable=sPut complete dim=1              | hestonEuro.cpp:85 in samplesim, sPut         |
+| array_partition | variable=stockPrice complete dim=1        | hestonEuro.cpp:88 in samplesim, stockPrice   |
+| array_partition | variable=vols complete dim=1              | hestonEuro.cpp:91 in samplesim, vols         |
+| array_partition | variable=pVols complete dim=1             | hestonEuro.cpp:92 in samplesim, pVols        |
+| array_partition | variable=num2 complete dim=1              | hestonEuro.cpp:95 in samplesim, num2         |
+| array_partition | variable=num1 complete dim=1              | hestonEuro.cpp:96 in samplesim, num1         |
+| unroll          |                                           | hestonEuro.cpp:99 in samplesim               |
+| unroll          |                                           | hestonEuro.cpp:107 in samplesim              |
+| pipeline        |                                           | hestonEuro.cpp:119 in samplesim              |
+| unroll          |                                           | hestonEuro.cpp:122 in samplesim              |
+| unroll          |                                           | hestonEuro.cpp:139 in samplesim              |
+| unroll          |                                           | hestonEuro.cpp:157 in samplesim              |
++-----------------+-------------------------------------------+----------------------------------------------+
+
+

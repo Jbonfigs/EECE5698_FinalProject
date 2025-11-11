@@ -1,0 +1,139 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../hestonEuro_tb.cpp in debug mode
+   Compiling ../../../../common/volatilityData.cpp in debug mode
+   Compiling ../../../../common/stockData.cpp in debug mode
+   Compiling ../../../../common/RNG.cpp in debug mode
+   Compiling ../../../../hestonEuro.cpp in debug mode
+   Generating csim.exe
+
+***************************************
+* Heston European Option Pricing Test *
+***************************************
+
+Running Test 1: At-The-Money Option...
+
+========================================
+Test: At-The-Money Option
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   15.333257
+Put Option Price:    10.687498
+Put-Call Parity Check:
+  C - P = 4.645759
+  S - K*e^(-rT) = 4.877052
+  Error = 0.231294
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 2: In-The-Money Call Option...
+
+========================================
+Test: In-The-Money Call
+========================================
+Stock Price (S0):    110.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   22.349947
+Put Option Price:    7.727313
+Put-Call Parity Check:
+  C - P = 14.622634
+  S - K*e^(-rT) = 14.877052
+  Error = 0.254418
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 3: Out-of-The-Money Call Option...
+
+========================================
+Test: Out-of-The-Money Call
+========================================
+Stock Price (S0):    90.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   9.432361
+Put Option Price:    14.763469
+Put-Call Parity Check:
+  C - P = -5.331108
+  S - K*e^(-rT) = -5.122948
+  Error = 0.208160
+  Status: WARNING (Error < 1.0)
+========================================
+
+Running Test 4: Short Time to Maturity...
+
+========================================
+Test: Short Time to Maturity
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):0.100000
+----------------------------------------
+Call Option Price:   5.722283
+Put Option Price:    5.256601
+Put-Call Parity Check:
+  C - P = 0.465682
+  S - K*e^(-rT) = 0.498756
+  Error = 0.033074
+  Status: PASS (Error < 0.1)
+========================================
+
+Running Test 5: High Volatility Scenario...
+
+========================================
+Test: High Volatility
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   25.776226
+Put Option Price:    20.930138
+Put-Call Parity Check:
+  C - P = 4.846088
+  S - K*e^(-rT) = 4.877052
+  Error = 0.030964
+  Status: PASS (Error < 0.1)
+========================================
+
+Running Test 6: Low Volatility Scenario...
+
+========================================
+Test: Low Volatility
+========================================
+Stock Price (S0):    100.000000
+Strike Price (K):    100.000000
+Risk-free Rate (r):  0.050000
+Time to Maturity (T):1.000000
+----------------------------------------
+Call Option Price:   10.354547
+Put Option Price:    5.556574
+Put-Call Parity Check:
+  C - P = 4.797973
+  S - K*e^(-rT) = 4.877052
+  Error = 0.079080
+  Status: PASS (Error < 0.1)
+========================================
+
+
+***************************************
+* Test Summary
+***************************************
+Total Tests: 6
+Passed:      6
+Failed:      0
+***************************************
+
+All tests PASSED!
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

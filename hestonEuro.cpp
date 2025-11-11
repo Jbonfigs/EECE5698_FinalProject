@@ -16,23 +16,14 @@ void hestonEuro(data_t *pCall, data_t *pPut,   // call price and put price
 #pragma HLS INTERFACE s_axilite port=pCall bundle=control
 #pragma HLS INTERFACE m_axi port=pPut bundle=gmem
 #pragma HLS INTERFACE s_axilite port=pPut bundle=control
-#pragma HLS INTERFACE s_axilite port=correlation bundle=gmem
 #pragma HLS INTERFACE s_axilite port=correlation bundle=control
-#pragma HLS INTERFACE s_axilite port=variance bundle=gmem
 #pragma HLS INTERFACE s_axilite port=variance bundle=control
-#pragma HLS INTERFACE s_axilite port=kappa bundle=gmem
 #pragma HLS INTERFACE s_axilite port=kappa bundle=control
-#pragma HLS INTERFACE s_axilite port=expect bundle=gmem
 #pragma HLS INTERFACE s_axilite port=expect bundle=control
-#pragma HLS INTERFACE s_axilite port=timeT bundle=gmem
 #pragma HLS INTERFACE s_axilite port=timeT bundle=control
-#pragma HLS INTERFACE s_axilite port=freeRate bundle=gmem
 #pragma HLS INTERFACE s_axilite port=freeRate bundle=control
-#pragma HLS INTERFACE s_axilite port=volatility bundle=gmem
 #pragma HLS INTERFACE s_axilite port=volatility bundle=control
-#pragma HLS INTERFACE s_axilite port=initPrice bundle=gmem
 #pragma HLS INTERFACE s_axilite port=initPrice bundle=control
-#pragma HLS INTERFACE s_axilite port=strikePrice bundle=gmem
 #pragma HLS INTERFACE s_axilite port=strikePrice bundle=control
 #pragma HLS INTERFACE s_axilite port=return bundle=control
 

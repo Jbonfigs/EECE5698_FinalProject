@@ -1,0 +1,87 @@
+{
+    "1": {
+        "name": "sin_or_cos<float>",
+        "file": "hls_hotbm.h",
+        "fileloc": "209",
+        "instructions": "146",
+        "total_instructions": "146",
+        "calls": "",
+        "basicblocks": "1",
+        "loads": {
+            "G": "4"
+        }
+    },
+    "2": {
+        "name": "generic_fmax<float>",
+        "file": "hls_fmax.h",
+        "fileloc": "19",
+        "instructions": "15",
+        "total_instructions": "15",
+        "calls": "",
+        "basicblocks": "1"
+    },
+    "3": {
+        "name": "sampleSIM",
+        "file": "hestonEuro.cpp",
+        "fileloc": "72",
+        "instructions": "1019",
+        "total_instructions": "3461",
+        "calls": "2 2 5",
+        "basicblocks": "130",
+        "loads": {
+            "L": "178"
+        },
+        "stores": {
+            "L": "276"
+        },
+        "loops": {
+            "L": "2",
+            "N": "1"
+        }
+    },
+    "4": {
+        "name": "simulation",
+        "file": "hestonEuro.cpp",
+        "fileloc": "54",
+        "instructions": "108",
+        "total_instructions": "3569",
+        "calls": "3",
+        "basicblocks": "4",
+        "loads": {
+            "L": "5"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "5": {
+        "name": "sampleSIM_Pipeline_loop_path_loop_share",
+        "file": "hestonEuro.cpp",
+        "fileloc": "115",
+        "instructions": "1124",
+        "total_instructions": "2412",
+        "calls": "2 2 2 2 1 1 1 1 2 1 1 2 2 1 1 2",
+        "basicblocks": "64",
+        "loads": {
+            "L": "162"
+        },
+        "stores": {
+            "L": "156"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "hestonEuro",
+        "file": "hestonEuro.cpp",
+        "fileloc": "3",
+        "instructions": "64",
+        "total_instructions": "3633",
+        "calls": "4",
+        "basicblocks": "1"
+    }
+}

@@ -20,6 +20,7 @@
 #define RNG_L 18
 #define __SINF_COSF_BUG_FIXED__
 
+
 //Bit mask for MT algorithm
 #define lower_mask   0x7FFFFFFF//(1 << R) - 1
 #define upper_mask   0x80000000//~lower_mask
@@ -47,10 +48,10 @@ void RNG::init(uint seed)
 //Initialize array of RNGs for parallel hardware processing
 void RNG::init_array(RNG* rng, uint* seed, const int size)
 {
-	uint tmp[size];
+	uint tmp[4];
 #pragma HLS ARRAY_PARTITION variable=tmp complete dim=1
 
-	loop_set_seed:for(int i=0;i<size;i++)
+	loop_set_seed:for(int i=0;i<4;i++)
 	{
 #pragma HLS UNROLL
 		rng[i].index = 0;
@@ -62,7 +63,7 @@ void RNG::init_array(RNG* rng, uint* seed, const int size)
     //Initialize state arrays for all RNGs in parallel
 	loop_seed_init:for (int i = 0; i < RNG_H; i++)
 	{
-		loop_group_init:for(int k=0;k<size;k++)
+		loop_group_init:for(int k=0;k<4;k++)
 		{
 #pragma HLS UNROLL
 			rng[k].mt_e[i]=tmp[k];

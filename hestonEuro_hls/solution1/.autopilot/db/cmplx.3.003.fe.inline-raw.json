@@ -1,0 +1,76 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "hestonEuro.cpp",
+    "fileloc": 3,
+    "instructions": 102,
+    "loads": {
+      "L": 22
+    },
+    "name": "hestonEuro",
+    "stores": {
+      "L": 30,
+      "T": 2
+    },
+    "total_instructions": 5761
+  },
+  "1": {
+    "basicblocks": 11,
+    "calls": "3 3 3 2 2 3 3 2 2 3 3 2 2 3 3 2 2 3",
+    "file": "hestonEuro.cpp",
+    "fileloc": 70,
+    "instructions": 659,
+    "loads": {
+      "L": 61
+    },
+    "name": "sampleSIM",
+    "stores": {
+      "L": 70
+    },
+    "total_instructions": 5549
+  },
+  "2": {
+    "basicblocks": 31,
+    "calls": "",
+    "file": "hls_hotbm.h",
+    "fileloc": 209,
+    "instructions": 430,
+    "loads": {
+      "G": 10,
+      "L": 28
+    },
+    "name": "sin_or_cos<float>",
+    "stores": {
+      "L": 39
+    },
+    "total_instructions": 430
+  },
+  "3": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "hls_fmax.h",
+    "fileloc": 19,
+    "instructions": 145,
+    "loads": {
+      "L": 17
+    },
+    "name": "generic_fmax<float>",
+    "stores": {
+      "L": 16
+    },
+    "total_instructions": 145
+  },
+  "4": {
+    "basicblocks": 3,
+    "calls": "1",
+    "file": "hestonEuro.cpp",
+    "fileloc": 51,
+    "instructions": 110,
+    "name": "simulation",
+    "stores": {
+      "L": 20
+    },
+    "total_instructions": 5659
+  }
+}

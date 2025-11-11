@@ -1,0 +1,316 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="common/RNG.cpp:49:54" msg_body="unused parameter 'size'">
+        <args ClangWarningOption="unused-parameter"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:52:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="init_array" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=tmp complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:56:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="init_array" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:68:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="init_array" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="extract_number" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:133:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="BOX_MULLER" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="common/RNG.cpp:155:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="BOX_MULLER" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/jbonfigs/EECE5698_FinalProject/run_hls.tcl:61:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=hestonEuro" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:15:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=pCall bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=pCall bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:17:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=pPut bundle=gmem" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=pPut bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=correlation bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=variance bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=kappa bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=expect bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=timeT bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=freeRate bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:25:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=volatility bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=initPrice bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=strikePrice bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:28:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="hestonEuro" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:55:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="simulation" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=mt_rng complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="simulation" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=seeds complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="simulation" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:84:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=sCall complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:85:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=sPut complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:88:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=stockPrice complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:91:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=vols complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:92:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=pVols complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:95:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=num2 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:96:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=num1 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:107:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:119:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:122:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:139:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hestonEuro.cpp:157:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="sampleSIM" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="common/RNG.cpp:137:2" msg_body="Inlining function 'RNG::extract_number(unsigned int*, unsigned int*)' into 'RNG::BOX_MULLER(float*, float*, float)'">
+        <args Callee="RNG::extract_number(unsigned int*, unsigned int*)" Callee-DebugLoc="File common/RNG.cpp Line 79 Column 0" Caller="RNG::BOX_MULLER(float*, float*, float)" Caller-DebugLoc="File common/RNG.cpp Line 132 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="hestonEuro.cpp:123:12" msg_body="Inlining function 'RNG::BOX_MULLER(float*, float*, float)' into 'heston::sampleSIM(RNG*, float*, float*)'">
+        <args Callee="RNG::BOX_MULLER(float*, float*, float)" Callee-DebugLoc="File common/RNG.cpp Line 132 Column 0" Caller="heston::sampleSIM(RNG*, float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 71 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INTERFACE" msg_id="214-386" msg_severity="WARNING" msg_loc="hestonEuro.cpp:14:0" msg_body="A depth specification is required for MAXI interface port 'pCall' for cosimulation.">
+        <args Name="pCall"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INTERFACE" msg_id="214-386" msg_severity="WARNING" msg_loc="hestonEuro.cpp:14:0" msg_body="A depth specification is required for MAXI interface port 'pPut' for cosimulation.">
+        <args Name="pPut"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="hestonEuro.cpp:120:16" msg_body="Loop 'loop_parallel' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="loop_parallel"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Unrolling loop 'loop_final_sum' (hestonEuro.cpp:155:17) in function 'heston::sampleSIM' completely with a factor of 4">
+        <args Factor="4" LoopLoc="hestonEuro.cpp:155:17" LoopName="loop_final_sum"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Unrolling loop 'loop_parallel' (hestonEuro.cpp:120:16) in function 'heston::sampleSIM' completely with a factor of 4">
+        <args Factor="4" LoopLoc="hestonEuro.cpp:120:16" LoopName="loop_parallel"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Unrolling loop 'loop_sum_r' (hestonEuro.cpp:137:15) in function 'heston::sampleSIM' completely with a factor of 4">
+        <args Factor="4" LoopLoc="hestonEuro.cpp:137:15" LoopName="loop_sum_r"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Unrolling loop 'VITIS_LOOP_105_2' (hestonEuro.cpp:105:21) in function 'heston::sampleSIM' completely with a factor of 4">
+        <args Factor="4" LoopLoc="hestonEuro.cpp:105:21" LoopName="VITIS_LOOP_105_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Unrolling loop 'VITIS_LOOP_97_1' (hestonEuro.cpp:97:19) in function 'heston::sampleSIM' completely with a factor of 4">
+        <args Factor="4" LoopLoc="hestonEuro.cpp:97:19" LoopName="VITIS_LOOP_97_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5) in function 'scaled_fixed2ieee&lt;29, 1&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5) in function 'scaled_fixed2ieee&lt;29, 1&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5) in function 'scaled_fixed2ieee&lt;29, 1&gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Unrolling loop 'anonymous' (/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41) in function 'scaled_fixed2ieee&lt;29, 1&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Unrolling loop 'anonymous' () in function 'scaled_fixed2ieee&lt;29, 1&gt;' completely with a factor of 1">
+        <args Factor="1" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="common/RNG.cpp:50:0" msg_body="Unrolling loop 'loop_group_init' (common/RNG.cpp:66:19) in function 'RNG::init_array' completely with a factor of 4">
+        <args Factor="4" LoopLoc="common/RNG.cpp:66:19" LoopName="loop_group_init"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="common/RNG.cpp:50:0" msg_body="Unrolling loop 'loop_set_seed' (common/RNG.cpp:54:16) in function 'RNG::init_array' completely with a factor of 4">
+        <args Factor="4" LoopLoc="common/RNG.cpp:54:16" LoopName="loop_set_seed"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:47:0" msg_body="Inlining function 'stockData::stockData(stockData const&amp;)' into 'heston::heston(stockData, volData)'">
+        <args Callee="stockData::stockData(stockData const&amp;)" Callee-DebugLoc="File common/stockData.cpp Line 14 Column 0" Caller="heston::heston(stockData, volData)" Caller-DebugLoc="File hestonEuro.cpp Line 47 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:47:0" msg_body="Inlining function 'volData::volData(volData const&amp;)' into 'heston::heston(stockData, volData)'">
+        <args Callee="volData::volData(volData const&amp;)" Callee-DebugLoc="File common/volatilityData.cpp Line 16 Column 0" Caller="heston::heston(stockData, volData)" Caller-DebugLoc="File hestonEuro.cpp Line 47 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h:16:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::fp_struct(float)' into 'int generic_isnan&lt;float&gt;(float)'">
+        <args Callee="fp_struct&lt;float&gt;::fp_struct(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 283 Column 0" Caller="int generic_isnan&lt;float&gt;(float)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h Line 16 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:322:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::data() const (.41.48.54.62)' into 'fp_struct&lt;float&gt;::to_float() const (.69.76.84.92)'">
+        <args Callee="fp_struct&lt;float&gt;::data() const (.41.48.54.62)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 309 Column 0" Caller="fp_struct&lt;float&gt;::to_float() const (.69.76.84.92)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 322 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:346:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::to_float() const (.69.76.84.92)' into 'fp_struct&lt;float&gt;::to_ieee() const'">
+        <args Callee="fp_struct&lt;float&gt;::to_float() const (.69.76.84.92)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 322 Column 0" Caller="fp_struct&lt;float&gt;::to_ieee() const" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 346 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:319:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::data() const (.41.48.54.62)' into 'fp_struct&lt;float&gt;::to_int() const'">
+        <args Callee="fp_struct&lt;float&gt;::data() const (.41.48.54.62)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 309 Column 0" Caller="fp_struct&lt;float&gt;::to_int() const" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 319 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::fp_struct(float)' into 'float generic_fmax&lt;float&gt;(float, float)'">
+        <args Callee="fp_struct&lt;float&gt;::fp_struct(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 283 Column 0" Caller="float generic_fmax&lt;float&gt;(float, float)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h Line 20 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0" msg_body="Inlining function 'int generic_isnan&lt;float&gt;(float)' into 'float generic_fmax&lt;float&gt;(float, float)'">
+        <args Callee="int generic_isnan&lt;float&gt;(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h Line 16 Column 0" Caller="float generic_fmax&lt;float&gt;(float, float)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h Line 20 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::to_ieee() const' into 'float generic_fmax&lt;float&gt;(float, float)'">
+        <args Callee="fp_struct&lt;float&gt;::to_ieee() const" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 346 Column 0" Caller="float generic_fmax&lt;float&gt;(float, float)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h Line 20 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h:20:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::to_int() const' into 'float generic_fmax&lt;float&gt;(float, float)'">
+        <args Callee="fp_struct&lt;float&gt;::to_int() const" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 319 Column 0" Caller="float generic_fmax&lt;float&gt;(float, float)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h Line 20 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::fp_struct(float)' into 'void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)'">
+        <args Callee="fp_struct&lt;float&gt;::fp_struct(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 283 Column 0" Caller="void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 437 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::expv() const' into 'void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)'">
+        <args Callee="fp_struct&lt;float&gt;::expv() const" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 316 Column 0" Caller="void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 437 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0" msg_body="Inlining function 'ap_uint&lt;(((2) * ((23) + (1))) + (29)) + (3)&gt; table_lookup_4oPi_hotbm&lt;23, 29&gt;(int, float)' into 'void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)'">
+        <args Callee="ap_uint&lt;(((2) * ((23) + (1))) + (29)) + (3)&gt; table_lookup_4oPi_hotbm&lt;23, 29&gt;(int, float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 374 Column 0" Caller="void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 437 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h:437:0" msg_body="Inlining function 'unsigned int clz&lt;29, 58, 0&gt;(ap_ufixed&lt;58, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;)' into 'void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)'">
+        <args Callee="unsigned int clz&lt;29, 58, 0&gt;(ap_ufixed&lt;58, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_normalize.h Line 70 Column 0" Caller="void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 437 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Inlining function 'clz(int) (.214)' into 'void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)'">
+        <args Callee="clz(int) (.214)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_normalize.h Line 79 Column 0" Caller="void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h Line 257 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::set_mantissa(ap_ufixed&lt;24, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;)' into 'void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)'">
+        <args Callee="fp_struct&lt;float&gt;::set_mantissa(ap_ufixed&lt;24, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 336 Column 0" Caller="void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h Line 257 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:257:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::to_ieee() const' into 'void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)'">
+        <args Callee="fp_struct&lt;float&gt;::to_ieee() const" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 346 Column 0" Caller="void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h Line 257 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::fp_struct(float)' into 'float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)'">
+        <args Callee="fp_struct&lt;float&gt;::fp_struct(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 283 Column 0" Caller="float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0" msg_body="Inlining function 'void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)' into 'float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)'">
+        <args Callee="void range_redux_payne_hanek_hotbm&lt;29, float, 29, 29&gt;(float, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;fp_struct&lt;float&gt;::EXP_BITS&gt;&amp;)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h Line 437 Column 0" Caller="float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0" msg_body="Inlining function 'ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt; hotbm_::value_list&lt;float&gt;::sin_or_cos_approximation&lt;29, 29&gt;(bool, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;8&gt;&amp;)' into 'float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)'">
+        <args Callee="ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt; hotbm_::value_list&lt;float&gt;::sin_or_cos_approximation&lt;29, 29&gt;(bool, ap_uint&lt;3&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_ufixed&lt;29, 0, (ap_q_mode)5, (ap_o_mode)3, 0&gt;&amp;, ap_int&lt;8&gt;&amp;)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp Line 12 Column 0" Caller="float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0" msg_body="Inlining function 'void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)' into 'float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)'">
+        <args Callee="void scaled_fixed2ieee&lt;29, 1&gt;(ap_ufixed&lt;29, 1, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, float&amp;, int)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h Line 257 Column 0" Caller="float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:210:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::to_ieee() const' into 'float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)'">
+        <args Callee="fp_struct&lt;float&gt;::to_ieee() const" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 346 Column 0" Caller="float hotbm_::sin_or_cos&lt;float&gt;(float, bool, bool)" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h Line 210 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp:11:0" msg_body="Inlining function 'hotbm_::cos(float)' into 'cosf'">
+        <args Callee="hotbm_::cos(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp Line 126 Column 0" Caller="cosf" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp Line 11 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp:7:0" msg_body="Inlining function 'hotbm_::sin(float)' into 'sinf'">
+        <args Callee="hotbm_::sin(float)" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp Line 122 Column 0" Caller="sinf" Caller-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp Line 7 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Inlining function 'fmaxf' into 'heston::sampleSIM(RNG*, float*, float*)'">
+        <args Callee="fmaxf" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/fmaxfloat.cpp Line 6 Column 0" Caller="heston::sampleSIM(RNG*, float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 71 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Inlining function 'RNG::increase(int)' into 'heston::sampleSIM(RNG*, float*, float*)'">
+        <args Callee="RNG::increase(int)" Callee-DebugLoc="File common/RNG.cpp Line 125 Column 0" Caller="heston::sampleSIM(RNG*, float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 71 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Inlining function 'cosf' into 'heston::sampleSIM(RNG*, float*, float*)'">
+        <args Callee="cosf" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp Line 11 Column 0" Caller="heston::sampleSIM(RNG*, float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 71 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:71:0" msg_body="Inlining function 'sinf' into 'heston::sampleSIM(RNG*, float*, float*)'">
+        <args Callee="sinf" Callee-DebugLoc="File /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp Line 7 Column 0" Caller="heston::sampleSIM(RNG*, float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 71 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:52:0" msg_body="Inlining function 'RNG::init_array(RNG*, unsigned int*, int)' into 'heston::simulation(float*, float*)'">
+        <args Callee="RNG::init_array(RNG*, unsigned int*, int)" Callee-DebugLoc="File common/RNG.cpp Line 50 Column 0" Caller="heston::simulation(float*, float*)" Caller-DebugLoc="File hestonEuro.cpp Line 52 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:14:0" msg_body="Inlining function 'volData::volData(float, float, float, float, float)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'">
+        <args Callee="volData::volData(float, float, float, float, float)" Callee-DebugLoc="File common/volatilityData.cpp Line 7 Column 0" Caller="hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)" Caller-DebugLoc="File hestonEuro.cpp Line 14 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:14:0" msg_body="Inlining function 'stockData::stockData(float, float, float, float, float)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'">
+        <args Callee="stockData::stockData(float, float, float, float, float)" Callee-DebugLoc="File common/stockData.cpp Line 5 Column 0" Caller="hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)" Caller-DebugLoc="File hestonEuro.cpp Line 14 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:14:0" msg_body="Inlining function 'stockData::stockData(stockData const&amp;)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'">
+        <args Callee="stockData::stockData(stockData const&amp;)" Callee-DebugLoc="File common/stockData.cpp Line 14 Column 0" Caller="hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)" Caller-DebugLoc="File hestonEuro.cpp Line 14 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:14:0" msg_body="Inlining function 'volData::volData(volData const&amp;)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'">
+        <args Callee="volData::volData(volData const&amp;)" Callee-DebugLoc="File common/volatilityData.cpp Line 16 Column 0" Caller="hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)" Caller-DebugLoc="File hestonEuro.cpp Line 14 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="hestonEuro.cpp:14:0" msg_body="Inlining function 'heston::heston(stockData, volData)' into 'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'">
+        <args Callee="heston::heston(stockData, volData)" Callee-DebugLoc="File hestonEuro.cpp Line 47 Column 0" Caller="hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)" Caller-DebugLoc="File hestonEuro.cpp Line 14 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp:14:0" msg_body="Applying array_partition to '_ZZN6hotbm_10value_listIfE24sin_or_cos_approximationILi29ELi29EEE9ap_ufixedIXT_ELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEbR7ap_uintILi3EERS3_IXT_ELi0ELS4_5ELS5_3ELi0EERS3_IXT0_ELi0ELS4_5ELS5_3ELi0EER6ap_intILi8EEE10swap_table': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZN6hotbm_10value_listIfE24sin_or_cos_approximationILi29ELi29EEE9ap_ufixedIXT_ELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEbR7ap_uintILi3EERS3_IXT_ELi0ELS4_5ELS5_3ELi0EERS3_IXT0_ELi0ELS4_5ELS5_3ELi0EER6ap_intILi8EEE10swap_table"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:217:0" msg_body="Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_cos_table': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_cos_table"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:216:0" msg_body="Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_sin_table': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_sin_table"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h:215:0" msg_body="Applying array_partition to '_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE10swap_table': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZN6hotbm_10sin_or_cosIfEET_S1_bbE10swap_table"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp:25:67" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:87:9" msg_body="Applying array_partition to 'stockPrice': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="stockPrice"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:90:9" msg_body="Applying array_partition to 'vols': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="vols"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:90:39" msg_body="Applying array_partition to 'pVols': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="pVols"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:54:6" msg_body="Applying array_partition to 'mt_rng.index': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="mt_rng.index"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:54:6" msg_body="Applying array_partition to 'mt_rng.seed': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="mt_rng.seed"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:54:6" msg_body="Applying array_partition to 'mt_rng.mt_e': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="mt_rng.mt_e"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="hestonEuro.cpp:54:6" msg_body="Applying array_partition to 'mt_rng.mt_o': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="mt_rng.mt_o"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

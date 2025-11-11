@@ -60,13 +60,14 @@ puts "Running C Synthesis..."
 puts "================================================"
 csynth_design
 
+
 ############################################################
 ## C/RTL Co-simulation
 ############################################################
 puts "================================================"
 puts "Running C/RTL Co-simulation..."
 puts "================================================"
-cosim_design -trace_level all -rtl verilog
+#cosim_design -trace_level all -rtl verilog
 
 ############################################################
 ## Export RTL

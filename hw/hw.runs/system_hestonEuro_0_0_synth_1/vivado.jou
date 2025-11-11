@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Nov 10 19:59:29 2025
+# Process ID: 119120
+# Current directory: /home/jbonfigs/EECE5698_FinalProject/hw/hw.runs/system_hestonEuro_0_0_synth_1
+# Command line: vivado -log system_hestonEuro_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_hestonEuro_0_0.tcl
+# Log file: /home/jbonfigs/EECE5698_FinalProject/hw/hw.runs/system_hestonEuro_0_0_synth_1/system_hestonEuro_0_0.vds
+# Journal file: /home/jbonfigs/EECE5698_FinalProject/hw/hw.runs/system_hestonEuro_0_0_synth_1/vivado.jou
+# Running On: jack-b-Precision-7875-Tower, OS: Linux, CPU Frequency: 4963.708 MHz, CPU Physical cores: 24, Host memory: 15858 MB
+#-----------------------------------------------------------
+source system_hestonEuro_0_0.tcl -notrace

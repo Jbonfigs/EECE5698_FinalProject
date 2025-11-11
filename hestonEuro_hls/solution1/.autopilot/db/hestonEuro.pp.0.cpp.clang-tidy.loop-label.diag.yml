@@ -1,0 +1,22 @@
+---
+MainSourceFile:  /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_97_1:  '
+    FileOffset:      97
+    FilePath:        hestonEuro.cpp
+    Replacements:    
+      - FilePath:        /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp
+        Offset:          927744
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_97_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_105_2:  '
+    FileOffset:      105
+    FilePath:        hestonEuro.cpp
+    Replacements:    
+      - FilePath:        /home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp
+        Offset:          927879
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_105_2: '
+...

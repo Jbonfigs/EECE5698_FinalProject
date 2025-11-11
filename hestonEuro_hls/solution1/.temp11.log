@@ -1,0 +1,7 @@
+
+***************************************
+* Heston European Option Pricing Test *
+***************************************
+
+Running Test 1: At-The-Money Option...
+ERROR: A depth specification is required for MAXI interface port 'gmem' for cosimulation.

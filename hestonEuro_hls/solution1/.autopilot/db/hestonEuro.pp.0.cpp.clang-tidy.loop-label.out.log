@@ -1,0 +1,10 @@
+/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp:33065:2: warning: Added loop label VITIS_LOOP_97_1:   [xilinx-label-all-loops]
+ for(int i =0;i<NUM_RNGS;i++)
+ ^~~
+ VITIS_LOOP_97_1: 
+/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp:33065:2: note: FIX-IT applied suggested code changes
+/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp:33073:3: warning: Added loop label VITIS_LOOP_105_2:   [xilinx-label-all-loops]
+  for(int i =0;i<NUM_RNGS;i++)
+  ^~~
+  VITIS_LOOP_105_2: 
+/home/jbonfigs/EECE5698_FinalProject/hestonEuro_hls/solution1/.autopilot/db/hestonEuro.pp.0.cpp:33073:3: note: FIX-IT applied suggested code changes

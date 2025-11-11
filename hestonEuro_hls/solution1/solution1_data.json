@@ -1,0 +1,1573 @@
+{
+  "Top": "hestonEuro",
+  "RtlTop": "hestonEuro",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "hestonEuro_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "all",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xczu9eg",
+    "Package": "-ffvb1156",
+    "Speed": "-2-e",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "pCall": {
+      "index": "0",
+      "direction": "out",
+      "srcType": "float*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pCall_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pCall_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "pPut": {
+      "index": "1",
+      "direction": "out",
+      "srcType": "float*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pPut_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pPut_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "expect": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "s_axi_control",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "kappa": {
+      "index": "3",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "kappa",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "variance": {
+      "index": "4",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "variance",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "correlation": {
+      "index": "5",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "correlation",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "timeT": {
+      "index": "6",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "timeT",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "freeRate": {
+      "index": "7",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "freeRate",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "volatility": {
+      "index": "8",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "volatility",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "initPrice": {
+      "index": "9",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "initPrice",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "strikePrice": {
+      "index": "10",
+      "direction": "in",
+      "srcType": "float",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "strikePrice",
+          "usage": "data",
+          "direction": "in"
+        }]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_interface -m_axi_latency=64",
+      "config_interface -m_axi_addr64=1",
+      "config_compile -complex-mul-dsp=0",
+      "config_compile -pipeline_loops=0",
+      "config_rtl -reset=all",
+      "config_rtl -reset_level=high",
+      "config_schedule -enable_dsp_full_reg=1",
+      "config_export -format=ip_catalog",
+      "config_export -output=.\/export_ip",
+      "config_export -rtl=verilog"
+    ],
+    "DirectiveTcl": ["set_directive_top hestonEuro -name hestonEuro"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "hestonEuro"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "4075260",
+    "Latency": "4075259"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "hestonEuro",
+    "Version": "1.0",
+    "DisplayName": "Hestoneuro",
+    "Revision": "2114342485",
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_hestonEuro_1_0.zip"
+  },
+  "Files": {
+    "CSource": [
+      "..\/..\/.\/common\/volatilityData.cpp",
+      "..\/..\/.\/common\/stockData.cpp",
+      "..\/..\/.\/common\/RNG.cpp",
+      "..\/..\/.\/hestonEuro.cpp",
+      "..\/..\/common\/volatilityData.cpp",
+      "..\/..\/common\/stockData.cpp",
+      "..\/..\/common\/RNG.cpp",
+      "..\/..\/hestonEuro.cpp"
+    ],
+    "Vhdl": [
+      "impl\/vhdl\/hestonEuro_control_s_axi.vhd",
+      "impl\/vhdl\/hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_flog_32ns_32ns_32_9_full_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro_generic_fmax_float_s.vhd",
+      "impl\/vhdl\/hestonEuro_gmem_m_axi.vhd",
+      "impl\/vhdl\/hestonEuro_mul_15ns_15ns_30_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mul_15ns_15s_30_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mul_23s_22ns_45_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mul_30s_29ns_58_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mul_32s_32ns_32_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mul_80s_24ns_80_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_mux_4_2_32_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_sampleSIM.vhd",
+      "impl\/vhdl\/hestonEuro_sampleSIM_Pipeline_loop_path_loop_share.vhd",
+      "impl\/vhdl\/hestonEuro_simulation.vhd",
+      "impl\/vhdl\/hestonEuro_simulation_mt_rng_mt_e_RAM_1WNR_AUTO_1R1W.vhd",
+      "impl\/vhdl\/hestonEuro_sin_or_cos_float_s.vhd",
+      "impl\/vhdl\/hestonEuro_sin_or_cos_float_s_ref_4oPi_table_100_ROM_1P_LUTRAM_1R.vhd",
+      "impl\/vhdl\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K0_ROM_1P_LUTRAM_1R.vhd",
+      "impl\/vhdl\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K1_ROM_1P_LUTRAM_1R.vhd",
+      "impl\/vhdl\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K2_ROM_1P_LUTRAM_1R.vhd",
+      "impl\/vhdl\/hestonEuro_sparsemux_17_3_1_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_sparsemux_33_4_1_1_1.vhd",
+      "impl\/vhdl\/hestonEuro_uitofp_32ns_32_4_no_dsp_1.vhd",
+      "impl\/vhdl\/hestonEuro.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/hestonEuro_control_s_axi.v",
+      "impl\/verilog\/hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1.v",
+      "impl\/verilog\/hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1.v",
+      "impl\/verilog\/hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1.v",
+      "impl\/verilog\/hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1.v",
+      "impl\/verilog\/hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1.v",
+      "impl\/verilog\/hestonEuro_flog_32ns_32ns_32_9_full_dsp_1.v",
+      "impl\/verilog\/hestonEuro_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1.v",
+      "impl\/verilog\/hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1.v",
+      "impl\/verilog\/hestonEuro_generic_fmax_float_s.v",
+      "impl\/verilog\/hestonEuro_gmem_m_axi.v",
+      "impl\/verilog\/hestonEuro_mul_15ns_15ns_30_1_1.v",
+      "impl\/verilog\/hestonEuro_mul_15ns_15s_30_1_1.v",
+      "impl\/verilog\/hestonEuro_mul_23s_22ns_45_1_1.v",
+      "impl\/verilog\/hestonEuro_mul_30s_29ns_58_1_1.v",
+      "impl\/verilog\/hestonEuro_mul_32s_32ns_32_1_1.v",
+      "impl\/verilog\/hestonEuro_mul_80s_24ns_80_1_1.v",
+      "impl\/verilog\/hestonEuro_mux_4_2_32_1_1.v",
+      "impl\/verilog\/hestonEuro_sampleSIM.v",
+      "impl\/verilog\/hestonEuro_sampleSIM_Pipeline_loop_path_loop_share.v",
+      "impl\/verilog\/hestonEuro_simulation.v",
+      "impl\/verilog\/hestonEuro_simulation_mt_rng_mt_e_RAM_1WNR_AUTO_1R1W.dat",
+      "impl\/verilog\/hestonEuro_simulation_mt_rng_mt_e_RAM_1WNR_AUTO_1R1W.v",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s.v",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_ref_4oPi_table_100_ROM_1P_LUTRAM_1R.dat",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_ref_4oPi_table_100_ROM_1P_LUTRAM_1R.v",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K0_ROM_1P_LUTRAM_1R.dat",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K0_ROM_1P_LUTRAM_1R.v",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K1_ROM_1P_LUTRAM_1R.dat",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K1_ROM_1P_LUTRAM_1R.v",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K2_ROM_1P_LUTRAM_1R.dat",
+      "impl\/verilog\/hestonEuro_sin_or_cos_float_s_second_order_float_sin_cos_K2_ROM_1P_LUTRAM_1R.v",
+      "impl\/verilog\/hestonEuro_sparsemux_17_3_1_1_1.v",
+      "impl\/verilog\/hestonEuro_sparsemux_33_4_1_1_1.v",
+      "impl\/verilog\/hestonEuro_uitofp_32ns_32_4_no_dsp_1.v",
+      "impl\/verilog\/hestonEuro.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/data\/hestonEuro.mdd",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/data\/hestonEuro.tcl",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/data\/hestonEuro.yaml",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/CMakeLists.txt",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/xhestoneuro.c",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/xhestoneuro.h",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/xhestoneuro_hw.h",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/xhestoneuro_linux.c",
+      "impl\/misc\/drivers\/hestonEuro_v1_0\/src\/xhestoneuro_sinit.c"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "Subcore": [
+      "impl\/misc\/hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_flog_32ns_32ns_32_9_full_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1_ip.tcl",
+      "impl\/misc\/hestonEuro_uitofp_32ns_32_4_no_dsp_1_ip.tcl"
+    ],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/hestonEuro.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": [
+      {
+        "Name": "hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_fadd_32ns_32ns_32_4_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_faddfsub_32ns_32ns_32_4_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name hestonEuro_fcmp_32ns_32ns_1_2_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 7 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_fdiv_32ns_32ns_32_9_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 6 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_fexp_32ns_32ns_32_8_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Exponential CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_flog_32ns_32ns_32_9_full_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 7 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_flog_32ns_32ns_32_9_full_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Logarithm CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 1 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_fmul_32ns_32ns_32_3_max_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 6 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_fsqrt_32ns_32ns_32_8_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Square_Root CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "hestonEuro_uitofp_32ns_32_4_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Uint32 CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name hestonEuro_uitofp_32ns_32_4_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      }
+    ]
+  },
+  "Interfaces": {
+    "s_axi_control": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "7",
+      "portPrefix": "s_axi_control_",
+      "paramPrefix": "C_S_AXI_CONTROL_",
+      "offsetMasterName": "m_axi_gmem",
+      "ports": [
+        "s_axi_control_ARADDR",
+        "s_axi_control_ARREADY",
+        "s_axi_control_ARVALID",
+        "s_axi_control_AWADDR",
+        "s_axi_control_AWREADY",
+        "s_axi_control_AWVALID",
+        "s_axi_control_BREADY",
+        "s_axi_control_BRESP",
+        "s_axi_control_BVALID",
+        "s_axi_control_RDATA",
+        "s_axi_control_RREADY",
+        "s_axi_control_RRESP",
+        "s_axi_control_RVALID",
+        "s_axi_control_WDATA",
+        "s_axi_control_WREADY",
+        "s_axi_control_WSTRB",
+        "s_axi_control_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "description": "Control signals",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "1",
+              "name": "RESERVED_2",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "9",
+              "width": "1",
+              "name": "INTERRUPT",
+              "access": "R",
+              "description": "Control signal Register for 'interrupt'."
+            },
+            {
+              "offset": "10",
+              "width": "22",
+              "name": "RESERVED_3",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "description": "Global Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "description": "IP Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "description": "IP Interrupt Status Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED_0",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x10",
+          "name": "pCall_1",
+          "access": "W",
+          "description": "Data signal of pCall",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "pCall",
+              "access": "W",
+              "description": "Bit 31 to 0 of pCall"
+            }]
+        },
+        {
+          "offset": "0x14",
+          "name": "pCall_2",
+          "access": "W",
+          "description": "Data signal of pCall",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "pCall",
+              "access": "W",
+              "description": "Bit 63 to 32 of pCall"
+            }]
+        },
+        {
+          "offset": "0x1c",
+          "name": "pPut_1",
+          "access": "W",
+          "description": "Data signal of pPut",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "pPut",
+              "access": "W",
+              "description": "Bit 31 to 0 of pPut"
+            }]
+        },
+        {
+          "offset": "0x20",
+          "name": "pPut_2",
+          "access": "W",
+          "description": "Data signal of pPut",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "pPut",
+              "access": "W",
+              "description": "Bit 63 to 32 of pPut"
+            }]
+        },
+        {
+          "offset": "0x28",
+          "name": "expect_r",
+          "access": "W",
+          "description": "Data signal of expect_r",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "expect_r",
+              "access": "W",
+              "description": "Bit 31 to 0 of expect_r"
+            }]
+        },
+        {
+          "offset": "0x30",
+          "name": "kappa",
+          "access": "W",
+          "description": "Data signal of kappa",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "kappa",
+              "access": "W",
+              "description": "Bit 31 to 0 of kappa"
+            }]
+        },
+        {
+          "offset": "0x38",
+          "name": "variance",
+          "access": "W",
+          "description": "Data signal of variance",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "variance",
+              "access": "W",
+              "description": "Bit 31 to 0 of variance"
+            }]
+        },
+        {
+          "offset": "0x40",
+          "name": "correlation",
+          "access": "W",
+          "description": "Data signal of correlation",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "correlation",
+              "access": "W",
+              "description": "Bit 31 to 0 of correlation"
+            }]
+        },
+        {
+          "offset": "0x48",
+          "name": "timeT",
+          "access": "W",
+          "description": "Data signal of timeT",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "timeT",
+              "access": "W",
+              "description": "Bit 31 to 0 of timeT"
+            }]
+        },
+        {
+          "offset": "0x50",
+          "name": "freeRate",
+          "access": "W",
+          "description": "Data signal of freeRate",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "freeRate",
+              "access": "W",
+              "description": "Bit 31 to 0 of freeRate"
+            }]
+        },
+        {
+          "offset": "0x58",
+          "name": "volatility",
+          "access": "W",
+          "description": "Data signal of volatility",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "volatility",
+              "access": "W",
+              "description": "Bit 31 to 0 of volatility"
+            }]
+        },
+        {
+          "offset": "0x60",
+          "name": "initPrice",
+          "access": "W",
+          "description": "Data signal of initPrice",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "initPrice",
+              "access": "W",
+              "description": "Bit 31 to 0 of initPrice"
+            }]
+        },
+        {
+          "offset": "0x68",
+          "name": "strikePrice",
+          "access": "W",
+          "description": "Data signal of strikePrice",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "strikePrice",
+              "access": "W",
+              "description": "Bit 31 to 0 of strikePrice"
+            }]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "16",
+          "argName": "pCall"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "28",
+          "argName": "pPut"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "40",
+          "argName": "expect"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "48",
+          "argName": "kappa"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "56",
+          "argName": "variance"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "64",
+          "argName": "correlation"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "72",
+          "argName": "timeT"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "80",
+          "argName": "freeRate"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "88",
+          "argName": "volatility"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "96",
+          "argName": "initPrice"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "104",
+          "argName": "strikePrice"
+        }
+      ]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_control:m_axi_gmem",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "interrupt": {
+      "type": "interrupt",
+      "busTypeName": "interrupt",
+      "mode": "master",
+      "dataWidth": "1",
+      "busParams": {"SENSITIVITY": "LEVEL_HIGH"},
+      "portMap": {"interrupt": "INTERRUPT"},
+      "ports": ["interrupt"]
+    },
+    "m_axi_gmem": {
+      "type": "axi4full",
+      "busTypeName": "aximm",
+      "mode": "master",
+      "dataWidth": "32",
+      "addrWidth": "64",
+      "portPrefix": "m_axi_gmem_",
+      "paramPrefix": "C_M_AXI_GMEM_",
+      "offsetSlaveName": "s_axi_control",
+      "preferredUsageValue": "MEMORY",
+      "busParams": {
+        "NUM_READ_OUTSTANDING": "16",
+        "NUM_WRITE_OUTSTANDING": "16",
+        "MAX_READ_BURST_LENGTH": "16",
+        "MAX_WRITE_BURST_LENGTH": "16",
+        "MAX_BURST_LENGTH": "256",
+        "PROTOCOL": "AXI4",
+        "READ_WRITE_MODE": "WRITE_ONLY",
+        "HAS_BURST": "0",
+        "SUPPORTS_NARROW_BURST": "0"
+      },
+      "ports": [
+        "m_axi_gmem_ARADDR",
+        "m_axi_gmem_ARBURST",
+        "m_axi_gmem_ARCACHE",
+        "m_axi_gmem_ARID",
+        "m_axi_gmem_ARLEN",
+        "m_axi_gmem_ARLOCK",
+        "m_axi_gmem_ARPROT",
+        "m_axi_gmem_ARQOS",
+        "m_axi_gmem_ARREADY",
+        "m_axi_gmem_ARREGION",
+        "m_axi_gmem_ARSIZE",
+        "m_axi_gmem_ARUSER",
+        "m_axi_gmem_ARVALID",
+        "m_axi_gmem_AWADDR",
+        "m_axi_gmem_AWBURST",
+        "m_axi_gmem_AWCACHE",
+        "m_axi_gmem_AWID",
+        "m_axi_gmem_AWLEN",
+        "m_axi_gmem_AWLOCK",
+        "m_axi_gmem_AWPROT",
+        "m_axi_gmem_AWQOS",
+        "m_axi_gmem_AWREADY",
+        "m_axi_gmem_AWREGION",
+        "m_axi_gmem_AWSIZE",
+        "m_axi_gmem_AWUSER",
+        "m_axi_gmem_AWVALID",
+        "m_axi_gmem_BID",
+        "m_axi_gmem_BREADY",
+        "m_axi_gmem_BRESP",
+        "m_axi_gmem_BUSER",
+        "m_axi_gmem_BVALID",
+        "m_axi_gmem_RDATA",
+        "m_axi_gmem_RID",
+        "m_axi_gmem_RLAST",
+        "m_axi_gmem_RREADY",
+        "m_axi_gmem_RRESP",
+        "m_axi_gmem_RUSER",
+        "m_axi_gmem_RVALID",
+        "m_axi_gmem_WDATA",
+        "m_axi_gmem_WID",
+        "m_axi_gmem_WLAST",
+        "m_axi_gmem_WREADY",
+        "m_axi_gmem_WSTRB",
+        "m_axi_gmem_WUSER",
+        "m_axi_gmem_WVALID"
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "64",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "0",
+          "argName": "pCall"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "32",
+          "argName": "pCall"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "m_axi",
+          "register_option": "0",
+          "offset": "slave",
+          "latency": "64",
+          "num_read_outstanding": "16",
+          "num_write_outstanding": "16",
+          "max_read_burst_length": "16",
+          "max_write_burst_length": "16",
+          "max_widen_bitwidth": "0",
+          "argName": "pPut"
+        },
+        {
+          "constraint_type": "bitwidth",
+          "orig_bitwidth": "32",
+          "final_bitwidth": "32",
+          "argName": "pPut"
+        }
+      ]
+    }
+  },
+  "RtlPorts": {
+    "s_axi_control_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_AWADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_control_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_control_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_ARADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_control_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_control_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "interrupt": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_AWVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_AWREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_AWADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem_AWID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_AWLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem_AWSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_AWBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_AWLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_AWCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_AWQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_AWUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_WVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_WREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_WDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "m_axi_gmem_WSTRB": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_WLAST": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_WID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_WUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_ARVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_ARREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_ARADDR": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_axi_gmem_ARID": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_ARLEN": {
+      "dir": "out",
+      "width": "8"
+    },
+    "m_axi_gmem_ARSIZE": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_ARBURST": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_ARLOCK": {
+      "dir": "out",
+      "width": "2"
+    },
+    "m_axi_gmem_ARCACHE": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARPROT": {
+      "dir": "out",
+      "width": "3"
+    },
+    "m_axi_gmem_ARQOS": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARREGION": {
+      "dir": "out",
+      "width": "4"
+    },
+    "m_axi_gmem_ARUSER": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_RREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_RDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "m_axi_gmem_RLAST": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_RID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_RRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem_BVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "m_axi_gmem_BREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_axi_gmem_BRESP": {
+      "dir": "in",
+      "width": "2"
+    },
+    "m_axi_gmem_BID": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    },
+    "m_axi_gmem_BUSER": {
+      "dir": "in",
+      "width": "1",
+      "isVector": "true"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "hestonEuro",
+      "Instances": [{
+          "ModuleName": "simulation",
+          "InstanceName": "grp_simulation_fu_206",
+          "Instances": [{
+              "ModuleName": "sampleSIM",
+              "InstanceName": "grp_sampleSIM_fu_274",
+              "Instances": [
+                {
+                  "ModuleName": "generic_fmax_float_s",
+                  "InstanceName": "grp_generic_fmax_float_s_fu_2405"
+                },
+                {
+                  "ModuleName": "sampleSIM_Pipeline_loop_path_loop_share",
+                  "InstanceName": "grp_sampleSIM_Pipeline_loop_path_loop_share_fu_2411",
+                  "Instances": [
+                    {
+                      "ModuleName": "sin_or_cos_float_s",
+                      "InstanceName": "grp_sin_or_cos_float_s_fu_2130"
+                    },
+                    {
+                      "ModuleName": "generic_fmax_float_s",
+                      "InstanceName": "grp_generic_fmax_float_s_fu_2146"
+                    }
+                  ]
+                }
+              ]
+            }]
+        }]
+    },
+    "Info": {
+      "generic_fmax_float_s": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "1",
+        "isOneStateSeq": "0"
+      },
+      "sin_or_cos_float_s": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "sampleSIM_Pipeline_loop_path_loop_share": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "sampleSIM": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "simulation": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "hestonEuro": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "generic_fmax_float_s": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "yes"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "1.373"
+        },
+        "Area": {
+          "FF": "0",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "0",
+          "LUT": "102",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "sin_or_cos_float_s": {
+        "Latency": {
+          "LatencyBest": "5",
+          "LatencyAvg": "5",
+          "LatencyWorst": "5",
+          "PipelineII": "1",
+          "PipelineDepth": "6",
+          "PipelineType": "yes"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.767"
+        },
+        "Area": {
+          "DSP": "13",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "~0",
+          "FF": "854",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "~0",
+          "LUT": "2400",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "sampleSIM_Pipeline_loop_path_loop_share": {
+        "Latency": {
+          "LatencyBest": "7706",
+          "LatencyAvg": "7706",
+          "LatencyWorst": "7706",
+          "PipelineII": "7706",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.646"
+        },
+        "Loops": [{
+            "Name": "loop_path_loop_share",
+            "TripCount": "256",
+            "Latency": "7704",
+            "PipelineII": "30",
+            "PipelineDepth": "55"
+          }],
+        "Area": {
+          "DSP": "20",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "~0",
+          "FF": "6538",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "1",
+          "LUT": "10024",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "3",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "sampleSIM": {
+        "Latency": {
+          "LatencyBest": "4074561",
+          "LatencyAvg": "4074561",
+          "LatencyWorst": "4074561",
+          "PipelineII": "4074561",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.646"
+        },
+        "Loops": [
+          {
+            "Name": "loop_init",
+            "TripCount": "4",
+            "Latency": "4",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "loop_main",
+            "TripCount": "512",
+            "Latency": "4074496",
+            "PipelineII": "",
+            "PipelineDepth": "7958",
+            "Loops": [{
+                "Name": "loop_sum",
+                "TripCount": "4",
+                "Latency": "248",
+                "PipelineII": "",
+                "PipelineDepth": "62"
+              }]
+          }
+        ],
+        "Area": {
+          "DSP": "50",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "1",
+          "FF": "15804",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "2",
+          "LUT": "15597",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "5",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "simulation": {
+        "Latency": {
+          "LatencyBest": "4075188",
+          "LatencyAvg": "4075188",
+          "LatencyWorst": "4075188",
+          "PipelineII": "4075188",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.646"
+        },
+        "Loops": [{
+            "Name": "loop_seed_init",
+            "TripCount": "312",
+            "Latency": "624",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }],
+        "Area": {
+          "BRAM_18K": "16",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "~0",
+          "DSP": "62",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "2",
+          "FF": "16148",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "2",
+          "LUT": "16974",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "6",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      },
+      "hestonEuro": {
+        "Latency": {
+          "LatencyBest": "4075259",
+          "LatencyAvg": "4075259",
+          "LatencyWorst": "4075259",
+          "PipelineII": "4075260",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.646"
+        },
+        "Area": {
+          "BRAM_18K": "20",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "1",
+          "DSP": "62",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "2",
+          "FF": "18049",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "3",
+          "LUT": "18974",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "6",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2025-11-10 19:25:55 EST",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2023.2"
+  }
+}

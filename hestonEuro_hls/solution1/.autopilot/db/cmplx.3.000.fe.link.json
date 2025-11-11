@@ -1,0 +1,504 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "5",
+    "file": "hestonEuro.cpp",
+    "fileloc": 3,
+    "instructions": 52,
+    "loads": {
+      "L": 2
+    },
+    "name": "hestonEuro",
+    "stores": {
+      "T": 2
+    },
+    "total_instructions": 31385
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 166,
+    "instructions": 257,
+    "name": "__cxx_global_var_init.887",
+    "total_instructions": 4353
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "41",
+    "file": "sincosfloat.cpp",
+    "fileloc": 11,
+    "instructions": 2,
+    "name": "cosf",
+    "total_instructions": 9610
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "34 8 10 6",
+    "file": "RNG.cpp",
+    "fileloc": 131,
+    "instructions": 31,
+    "loads": {
+      "L": 2
+    },
+    "name": "BOX_MULLER",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 22235
+  },
+  "12": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 107,
+    "instructions": 129,
+    "name": "__cxx_global_var_init.641",
+    "total_instructions": 2177
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 130,
+    "instructions": 257,
+    "name": "__cxx_global_var_init.758",
+    "total_instructions": 4353
+  },
+  "14": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 281,
+    "instructions": 4,
+    "name": "fp_struct",
+    "total_instructions": 4
+  },
+  "15": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_range_redux.h",
+    "fileloc": 373,
+    "instructions": 50,
+    "loads": {
+      "G": 1
+    },
+    "name": "table_lookup_4oPi_hotbm<23, 29>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 256
+  },
+  "16": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "hls_hotbm_float.cpp",
+    "fileloc": 8,
+    "instructions": 142,
+    "loads": {
+      "G": 2
+    },
+    "name": "sin_or_cos_approximation<29, 29>",
+    "total_instructions": 1511
+  },
+  "17": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 336,
+    "instructions": 24,
+    "loads": {
+      "L": 1
+    },
+    "name": "set_mantissa",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 106
+  },
+  "18": {
+    "basicblocks": 64,
+    "calls": "8 8 11 8",
+    "file": "hestonEuro.cpp",
+    "fileloc": 70,
+    "instructions": 359,
+    "loads": {
+      "L": 32
+    },
+    "name": "sampleSIM",
+    "stores": {
+      "L": 15
+    },
+    "total_instructions": 31204
+  },
+  "19": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 283,
+    "instructions": 55,
+    "loads": {
+      "L": 1
+    },
+    "name": "fp_struct",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 311
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 202,
+    "instructions": 257,
+    "name": "__cxx_global_var_init.1016",
+    "total_instructions": 4353
+  },
+  "20": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hestonEuro.cpp",
+    "fileloc": 46,
+    "instructions": 5,
+    "name": "heston",
+    "total_instructions": 5
+  },
+  "21": {
+    "basicblocks": 9,
+    "calls": "19 23 15 36",
+    "file": "hls_range_redux.h",
+    "fileloc": 431,
+    "instructions": 200,
+    "loads": {
+      "L": 10
+    },
+    "name": "range_redux_payne_hanek_hotbm<29, float, 29, 29>",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 2143
+  },
+  "22": {
+    "basicblocks": 9,
+    "calls": "19 23 36",
+    "file": "hls_range_redux.h",
+    "fileloc": 543,
+    "instructions": 202,
+    "loads": {
+      "L": 9
+    },
+    "name": "range_redux_payne_hanek_hotbm_pi<29, float, 29, 29>",
+    "stores": {
+      "L": 10
+    },
+    "total_instructions": 2545
+  },
+  "23": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 316,
+    "instructions": 8,
+    "name": "expv",
+    "total_instructions": 109
+  },
+  "24": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_float_utils.h",
+    "fileloc": 48,
+    "instructions": 14,
+    "name": "__cxx_global_var_init.14",
+    "total_instructions": 222
+  },
+  "25": {
+    "basicblocks": 25,
+    "calls": "14 40 17 32",
+    "file": "x_hls_float_utils.h",
+    "fileloc": 256,
+    "instructions": 240,
+    "loads": {
+      "L": 10
+    },
+    "name": "scaled_fixed2ieee<29, 1>",
+    "stores": {
+      "L": 9
+    },
+    "total_instructions": 1490
+  },
+  "26": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "stockData.cpp",
+    "fileloc": 3,
+    "instructions": 11,
+    "name": "stockData",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 11
+  },
+  "27": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "volatilityData.cpp",
+    "fileloc": 15,
+    "instructions": 21,
+    "loads": {
+      "L": 5
+    },
+    "name": "volData",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 21
+  },
+  "28": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 309,
+    "instructions": 32,
+    "name": "data",
+    "total_instructions": 274
+  },
+  "29": {
+    "basicblocks": 19,
+    "calls": "",
+    "file": "RNG.cpp",
+    "fileloc": 49,
+    "instructions": 99,
+    "loads": {
+      "L": 8
+    },
+    "name": "init_array",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 99
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "hls_hotbm_float.cpp",
+    "fileloc": 122,
+    "instructions": 2,
+    "name": "sin",
+    "total_instructions": 9608
+  },
+  "30": {
+    "basicblocks": 1,
+    "calls": "28",
+    "file": "x_hls_utils.h",
+    "fileloc": 322,
+    "instructions": 14,
+    "loads": {
+      "L": 1
+    },
+    "name": "to_float",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 292
+  },
+  "31": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "stockData.cpp",
+    "fileloc": 13,
+    "instructions": 21,
+    "loads": {
+      "L": 5
+    },
+    "name": "stockData",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 21
+  },
+  "32": {
+    "basicblocks": 1,
+    "calls": "30",
+    "file": "x_hls_utils.h",
+    "fileloc": 346,
+    "instructions": 2,
+    "name": "to_ieee",
+    "total_instructions": 294
+  },
+  "33": {
+    "basicblocks": 3,
+    "calls": "19",
+    "file": "hls_isnan.h",
+    "fileloc": 16,
+    "instructions": 18,
+    "name": "generic_isnan<float>",
+    "total_instructions": 382
+  },
+  "34": {
+    "basicblocks": 5,
+    "calls": "7 7 7",
+    "file": "RNG.cpp",
+    "fileloc": 78,
+    "instructions": 84,
+    "loads": {
+      "L": 8
+    },
+    "name": "extract_number",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 114
+  },
+  "35": {
+    "basicblocks": 1,
+    "calls": "28",
+    "file": "x_hls_utils.h",
+    "fileloc": 319,
+    "instructions": 5,
+    "name": "to_int",
+    "total_instructions": 283
+  },
+  "36": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_normalize.h",
+    "fileloc": 69,
+    "instructions": 29,
+    "name": "clz<29, 58, 0>",
+    "total_instructions": 199
+  },
+  "37": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "volatilityData.cpp",
+    "fileloc": 2,
+    "instructions": 11,
+    "name": "volData",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 11
+  },
+  "38": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 69,
+    "instructions": 129,
+    "name": "__cxx_global_var_init.383",
+    "total_instructions": 2177
+  },
+  "39": {
+    "basicblocks": 1,
+    "calls": "38 9 12 13 1 2",
+    "file": "hls_hotbm_float.pp.cpp",
+    "fileloc": 0,
+    "instructions": 7,
+    "name": "",
+    "total_instructions": 19597
+  },
+  "4": {
+    "basicblocks": 27,
+    "calls": "19 22 21 16 25 19 32",
+    "file": "hls_hotbm.h",
+    "fileloc": 209,
+    "instructions": 238,
+    "loads": {
+      "G": 4,
+      "L": 14
+    },
+    "name": "sin_or_cos<float>",
+    "stores": {
+      "L": 14
+    },
+    "total_instructions": 9606
+  },
+  "40": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_normalize.h",
+    "fileloc": 79,
+    "instructions": 9,
+    "name": "clz",
+    "total_instructions": 68
+  },
+  "41": {
+    "basicblocks": 1,
+    "calls": "4",
+    "file": "hls_hotbm_float.cpp",
+    "fileloc": 126,
+    "instructions": 2,
+    "name": "cos",
+    "total_instructions": 9608
+  },
+  "42": {
+    "basicblocks": 1,
+    "calls": "24",
+    "file": "sincoshotbmfloat.pp.cpp",
+    "fileloc": 0,
+    "instructions": 2,
+    "name": "",
+    "total_instructions": 224
+  },
+  "43": {
+    "basicblocks": 22,
+    "calls": "19 19 33 33 32 33 35 35",
+    "file": "hls_fmax.h",
+    "fileloc": 19,
+    "instructions": 82,
+    "name": "generic_fmax<float>",
+    "total_instructions": 2868
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "29 18",
+    "file": "hestonEuro.cpp",
+    "fileloc": 51,
+    "instructions": 30,
+    "name": "simulation",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 31333
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "3",
+    "file": "sincosfloat.cpp",
+    "fileloc": 7,
+    "instructions": 2,
+    "name": "sinf",
+    "total_instructions": 9610
+  },
+  "7": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "RNG.cpp",
+    "fileloc": 124,
+    "instructions": 10,
+    "loads": {
+      "L": 1
+    },
+    "name": "increase",
+    "total_instructions": 10
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "43",
+    "file": "fmaxfloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "fmaxf",
+    "total_instructions": 2870
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "hls_hotbm_tables_float.h",
+    "fileloc": 88,
+    "instructions": 129,
+    "name": "__cxx_global_var_init.512",
+    "total_instructions": 2177
+  }
+}

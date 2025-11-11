@@ -1,0 +1,1081 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: common/RNG.cpp, Line: 137, Column: 2 }
+Function:        _ZN3RNG10BOX_MULLEREPfS0_f
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'RNG::extract_number(unsigned int*, unsigned int*)'
+    DebugLoc:        { File: common/RNG.cpp, Line: 79, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'RNG::BOX_MULLER(float*, float*, float)'
+    DebugLoc:        { File: common/RNG.cpp, Line: 132, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hestonEuro.cpp, Line: 123, Column: 12 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'RNG::BOX_MULLER(float*, float*, float)'
+    DebugLoc:        { File: common/RNG.cpp, Line: 132, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::sampleSIM(RNG*, float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+  - String:          ''''
+...
+--- !Failure
+Pass:            generate-ir-wrapper
+Name:            MAXIDepthUnspecified
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'A depth specification is required for MAXI interface port '''
+  - Name:            pCall
+  - String:          ''' for cosimulation.'
+...
+--- !Failure
+Pass:            generate-ir-wrapper
+Name:            MAXIDepthUnspecified
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'A depth specification is required for MAXI interface port '''
+  - Name:            pPut
+  - String:          ''' for cosimulation.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 120, Column: 16 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        loop_parallel
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 289, Column: 5 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 282, Column: 5 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 269, Column: 5 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 268, Column: 41 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        loop_final_sum
+  - String:          ''' ('
+  - LoopLoc:         'hestonEuro.cpp:155:17'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'heston::sampleSIM'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        loop_parallel
+  - String:          ''' ('
+  - LoopLoc:         'hestonEuro.cpp:120:16'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'heston::sampleSIM'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        loop_sum_r
+  - String:          ''' ('
+  - LoopLoc:         'hestonEuro.cpp:137:15'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'heston::sampleSIM'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_105_2
+  - String:          ''' ('
+  - LoopLoc:         'hestonEuro.cpp:105:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'heston::sampleSIM'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_97_1
+  - String:          ''' ('
+  - LoopLoc:         'hestonEuro.cpp:97:19'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'heston::sampleSIM'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         '/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:289:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         '/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:282:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         '/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:269:5'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         '/wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h:268:41'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         ''
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         ''
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'scaled_fixed2ieee<29, 1>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: common/RNG.cpp, Line: 50, Column: 0 }
+Function:        _ZN3RNG10init_arrayEPS_Pji
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        loop_group_init
+  - String:          ''' ('
+  - LoopLoc:         'common/RNG.cpp:66:19'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'RNG::init_array'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: common/RNG.cpp, Line: 50, Column: 0 }
+Function:        _ZN3RNG10init_arrayEPS_Pji
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        loop_set_seed
+  - String:          ''' ('
+  - LoopLoc:         'common/RNG.cpp:54:16'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'RNG::init_array'
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 47, Column: 0 }
+Function:        _ZN6hestonC2E9stockData7volData
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'stockData::stockData(stockData const&)'
+    DebugLoc:        { File: common/stockData.cpp, Line: 14, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::heston(stockData, volData)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 47, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 47, Column: 0 }
+Function:        _ZN6hestonC2E9stockData7volData
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'volData::volData(volData const&)'
+    DebugLoc:        { File: common/volatilityData.cpp, Line: 16, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::heston(stockData, volData)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 47, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h, 
+                   Line: 16, Column: 0 }
+Function:        _Z13generic_isnanIfEiT_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::fp_struct(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 283, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'int generic_isnan<float>(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h, 
+                       Line: 16, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                   Line: 322, Column: 0 }
+Function:        _ZNK9fp_structIfE8to_floatEv.69.76.84.92
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::data() const (.41.48.54.62)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 309, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fp_struct<float>::to_float() const (.69.76.84.92)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 322, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                   Line: 346, Column: 0 }
+Function:        _ZNK9fp_structIfE7to_ieeeEv
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::to_float() const (.69.76.84.92)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 322, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fp_struct<float>::to_ieee() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 346, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                   Line: 319, Column: 0 }
+Function:        _ZNK9fp_structIfE6to_intEv
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::data() const (.41.48.54.62)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 309, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'fp_struct<float>::to_int() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 319, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                   Line: 20, Column: 0 }
+Function:        _Z12generic_fmaxIfET_S0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::fp_struct(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 283, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float generic_fmax<float>(float, float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                       Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                   Line: 20, Column: 0 }
+Function:        _Z12generic_fmaxIfET_S0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'int generic_isnan<float>(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_isnan.h, 
+                       Line: 16, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float generic_fmax<float>(float, float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                       Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                   Line: 20, Column: 0 }
+Function:        _Z12generic_fmaxIfET_S0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::to_ieee() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 346, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float generic_fmax<float>(float, float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                       Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                   Line: 20, Column: 0 }
+Function:        _Z12generic_fmaxIfET_S0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::to_int() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 319, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float generic_fmax<float>(float, float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_fmax.h, 
+                       Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                   Line: 437, Column: 0 }
+Function:        _Z29range_redux_payne_hanek_hotbmILi29EfLi29ELi29EEvT0_R7ap_uintILi3EER9ap_ufixedIXT1_ELi0EL9ap_q_mode5EL9ap_o_mode3ELi0EERS4_IXT2_ELi0ELS5_5ELS6_3ELi0EER6ap_intIXsr9fp_structIS0_EE8EXP_BITSEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::fp_struct(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 283, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 437, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                   Line: 437, Column: 0 }
+Function:        _Z29range_redux_payne_hanek_hotbmILi29EfLi29ELi29EEvT0_R7ap_uintILi3EER9ap_ufixedIXT1_ELi0EL9ap_q_mode5EL9ap_o_mode3ELi0EERS4_IXT2_ELi0ELS5_5ELS6_3ELi0EER6ap_intIXsr9fp_structIS0_EE8EXP_BITSEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::expv() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 316, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 437, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                   Line: 437, Column: 0 }
+Function:        _Z29range_redux_payne_hanek_hotbmILi29EfLi29ELi29EEvT0_R7ap_uintILi3EER9ap_ufixedIXT1_ELi0EL9ap_q_mode5EL9ap_o_mode3ELi0EERS4_IXT2_ELi0ELS5_5ELS6_3ELi0EER6ap_intIXsr9fp_structIS0_EE8EXP_BITSEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_uint<(((2) * ((23) + (1))) + (29)) + (3)> table_lookup_4oPi_hotbm<23, 29>(int, float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 374, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 437, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                   Line: 437, Column: 0 }
+Function:        _Z29range_redux_payne_hanek_hotbmILi29EfLi29ELi29EEvT0_R7ap_uintILi3EER9ap_ufixedIXT1_ELi0EL9ap_q_mode5EL9ap_o_mode3ELi0EERS4_IXT2_ELi0ELS5_5ELS6_3ELi0EER6ap_intIXsr9fp_structIS0_EE8EXP_BITSEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'unsigned int clz<29, 58, 0>(ap_ufixed<58, 0, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_normalize.h, 
+                       Line: 70, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 437, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'clz(int) (.214)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_normalize.h, 
+                       Line: 79, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                       Line: 257, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::set_mantissa(ap_ufixed<24, 1, (ap_q_mode)5, (ap_o_mode)3, 0>)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 336, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                       Line: 257, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                   Line: 257, Column: 0 }
+Function:        _Z17scaled_fixed2ieeeILi29ELi1EEv9ap_ufixedIXT_EXT0_EL9ap_q_mode5EL9ap_o_mode3ELi0EERfi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::to_ieee() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 346, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                       Line: 257, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 210, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::fp_struct(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 283, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float hotbm_::sin_or_cos<float>(float, bool, bool)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                       Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 210, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void range_redux_payne_hanek_hotbm<29, float, 29, 29>(float, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<fp_struct<float>::EXP_BITS>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_range_redux.h, 
+                       Line: 437, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float hotbm_::sin_or_cos<float>(float, bool, bool)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                       Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 210, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0> hotbm_::value_list<float>::sin_or_cos_approximation<29, 29>(bool, ap_uint<3>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_ufixed<29, 0, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_int<8>&)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp, 
+                       Line: 12, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float hotbm_::sin_or_cos<float>(float, bool, bool)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                       Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 210, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'void scaled_fixed2ieee<29, 1>(ap_ufixed<29, 1, (ap_q_mode)5, (ap_o_mode)3, 0>, float&, int)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_float_utils.h, 
+                       Line: 257, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float hotbm_::sin_or_cos<float>(float, bool, bool)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                       Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 210, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'fp_struct<float>::to_ieee() const'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/src/hls/utils/x_hls_utils.h, 
+                       Line: 346, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'float hotbm_::sin_or_cos<float>(float, bool, bool)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                       Line: 210, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                   Line: 11, Column: 0 }
+Function:        cosf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hotbm_::cos(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp, 
+                       Line: 126, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          cosf
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                       Line: 11, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                   Line: 7, Column: 0 }
+Function:        sinf
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'hotbm_::sin(float)'
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          sinf
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                       Line: 7, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          fmaxf
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/fmaxfloat.cpp, 
+                       Line: 6, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::sampleSIM(RNG*, float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'RNG::increase(int)'
+    DebugLoc:        { File: common/RNG.cpp, Line: 125, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::sampleSIM(RNG*, float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          cosf
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                       Line: 11, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::sampleSIM(RNG*, float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          sinf
+    DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/c/sincosfloat.cpp, 
+                       Line: 7, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::sampleSIM(RNG*, float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 71, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 52, Column: 0 }
+Function:        _ZN6heston10simulationEPfS0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'RNG::init_array(RNG*, unsigned int*, int)'
+    DebugLoc:        { File: common/RNG.cpp, Line: 50, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'heston::simulation(float*, float*)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 52, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'volData::volData(float, float, float, float, float)'
+    DebugLoc:        { File: common/volatilityData.cpp, Line: 7, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'stockData::stockData(float, float, float, float, float)'
+    DebugLoc:        { File: common/stockData.cpp, Line: 5, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'stockData::stockData(stockData const&)'
+    DebugLoc:        { File: common/stockData.cpp, Line: 14, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'volData::volData(volData const&)'
+    DebugLoc:        { File: common/volatilityData.cpp, Line: 16, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+Function:        _Z10hestonEuroPfS_fffffffff
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'heston::heston(stockData, volData)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 47, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'hestonEuro(float*, float*, float, float, float, float, float, float, float, float, float)'
+    DebugLoc:        { File: hestonEuro.cpp, Line: 14, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp, 
+                   Line: 14, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZN6hotbm_10value_listIfE24sin_or_cos_approximationILi29ELi29EEE9ap_ufixedIXT_ELi1EL9ap_q_mode5EL9ap_o_mode3ELi0EEbR7ap_uintILi3EERS3_IXT_ELi0ELS4_5ELS5_3ELi0EERS3_IXT0_ELi0ELS4_5ELS5_3ELi0EER6ap_intILi8EEE10swap_table
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 217, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_cos_table
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 216, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZN6hotbm_10sin_or_cosIfEET_S1_bbE13neg_sin_table
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_hotbm.h, 
+                   Line: 215, Column: 0 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZN6hotbm_10sin_or_cosIfEET_S1_bbE10swap_table
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Failure
+Pass:            reflow-array-partition
+Name:            WarnArrayXFORMOnIndexCast
+DebugLoc:        { File: /wrk/ci/prod/2023.2/hls_product/continuous/689/2023.2/src/shared/hls/clib/hlsmath/src/common/hls_hotbm_float.cpp, 
+                   Line: 25, Column: 67 }
+Function:        _ZN6hotbm_10sin_or_cosIfEET_S1_bb
+Args:            
+  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 87, Column: 9 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          stockPrice
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 90, Column: 9 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          vols
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 90, Column: 39 }
+Function:        _ZN6heston9sampleSIMEP3RNGPfS2_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          pVols
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 54, Column: 6 }
+Function:        _ZN6heston10simulationEPfS0_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          mt_rng.index
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 54, Column: 6 }
+Function:        _ZN6heston10simulationEPfS0_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          mt_rng.seed
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 54, Column: 6 }
+Function:        _ZN6heston10simulationEPfS0_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          mt_rng.mt_e
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hestonEuro.cpp, Line: 54, Column: 6 }
+Function:        _ZN6heston10simulationEPfS0_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          mt_rng.mt_o
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
