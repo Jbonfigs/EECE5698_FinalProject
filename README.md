@@ -353,3 +353,10 @@ Typical errors:
 - In/Out-of-The-Money: 0.04 to 0.06
 - Short maturity: 0.05 to 0.08
 - High volatility: 0.70 to 1.00
+
+## Sources
+
+- [HestonModel_MonteCarlo](https://github.com/max2ma/HestonModel_MonteCarlo)
+- [F1 Acceleration for Montecarlo: financial algorithms on FPGA](https://www.bing.com/ck/a?!&&p=1bdcdb2d1c8b3941507fee9866ec7ce412bb5a3aa7a144567caa6737723a7b3dJmltdHM9MTc2MzUxMDQwMA&ptn=3&ver=2&hsh=4&fclid=06e47829-0bb1-6e5e-204f-6b970a696fd1&psq=F1+Acceleration+for+Montecarlo%3a+financial+algorithms+on+FPGA&u=a1aHR0cHM6Ly93d3cueGlsaW54LmNvbS9wdWJsaWNhdGlvbnMvZXZlbnRzL2RldmVsb3Blci1mb3J1bS8yMDE4LWZyYW5rZnVydC9mMS1hY2NlbGVyYXRpb24tZm9yLW1vbnRlY2FybG8tZmluYW5jaWFsLWFsZ29yaXRobXMtb24tZnBnYS5wZGY))
+- [Acceleration of financial Monte-Carlo simulations using FPGAs](https://ieeexplore.ieee.org/document/5671823)
+- [High Performance and Low Power Monte Carlo Methods to Option Pricing Models via High Level Design and Synthesis](https://ieeexplore.ieee.org/document/7920245)
