@@ -325,6 +325,68 @@ This performs:
 3. C/RTL Co-simulation - Hardware verification
 4. Export Design - IP packaging
 
+## Hardware 
+
+Here is a screenshot of our block diagram that is used to run on the ZCU102:
+
+![Block Diagram](images/Block%20Diagram.png)
+
+And here is the corresponding address space:
+
+![Address Space](images/Addresses.png)
+
+
+## Petalinux Deployment
+
+### Overview
+PetaLinux creates a complete Linux boot environment for the ZCU102, enabling the Heston option pricing application to run on the ARM Cortex-A53 processor with FPGA acceleration.
+
+### Build Process
+```bash
+# Create PetaLinux project
+petalinux-create -t project --template zynqMP -n heston_project
+cd heston_project
+
+# Configure with hardware design
+petalinux-config --get-hw-description=/path/to/design_1_wrapper.xsa
+
+# Build Linux system
+petalinux-build
+
+# Generate boot image
+petalinux-package --boot --fsbl images/linux/zynqmp_fsbl.elf \
+  --u-boot images/linux/u-boot.elf --pmufw images/linux/pmufw.elf \
+  --fpga images/linux/system.bit --force
+```
+
+### Output Files
+- **BOOT.BIN**: Unified boot image (FSBL + PMU firmware + bitstream + U-Boot)
+- **image.ub**: Linux kernel + device tree
+- **boot.scr**: U-Boot boot script
+- **rootfs.tar.gz**: Root filesystem
+
+### Cross-Compile Application
+```bash
+# Generate and install SDK
+petalinux-build --sdk
+petalinux-package --sysroot
+./images/linux/sdk.sh -d ~/petalinux_sdk
+
+# Source cross-compilation environment
+source ~/petalinux_sdk/environment-setup-cortexa72-cortexa53-xilinx-linux
+
+# Compile application for ARM
+$CXX -O2 hestonEuro_tb.cpp hestonEuro.cpp common/*.cpp \
+  -o heston_test -I./common -std=c++11
+```
+
+### Boot and Run
+1. Set SW6[4:1] = `1110` (SD boot mode)
+2. Insert SD card, connect UART (115200 baud)
+3. Power on ZCU102
+4. Login: `root` / `root`
+5. Execute: `./heston_test`
+
 ## Test Cases
 
 The test bench includes 6 scenarios:
@@ -336,12 +398,10 @@ The test bench includes 6 scenarios:
 5. High Volatility (sigma = 50%)
 6. Low Volatility (sigma = 10%)
 
-Each test validates:
-- Positive option prices
-- Put-Call parity relationship
-- Correct relative pricing (ITM > ATM > OTM)
+## Expected Output
 
-## Expected Accuracy
+The output of our model produces a Call option price and a Put option price. 
+The Put-Call partiy error is a check of our option output prices to ensure that they are correlated enough to prevent arbitrage. 
 
 Put-Call parity errors should be:
 - Normal volatility: 0.02 to 0.08 (acceptable)
@@ -359,4 +419,3 @@ Typical errors:
 - [HestonModel_MonteCarlo](https://github.com/max2ma/HestonModel_MonteCarlo)
 - [F1 Acceleration for Montecarlo: financial algorithms on FPGA](https://www.bing.com/ck/a?!&&p=1bdcdb2d1c8b3941507fee9866ec7ce412bb5a3aa7a144567caa6737723a7b3dJmltdHM9MTc2MzUxMDQwMA&ptn=3&ver=2&hsh=4&fclid=06e47829-0bb1-6e5e-204f-6b970a696fd1&psq=F1+Acceleration+for+Montecarlo%3a+financial+algorithms+on+FPGA&u=a1aHR0cHM6Ly93d3cueGlsaW54LmNvbS9wdWJsaWNhdGlvbnMvZXZlbnRzL2RldmVsb3Blci1mb3J1bS8yMDE4LWZyYW5rZnVydC9mMS1hY2NlbGVyYXRpb24tZm9yLW1vbnRlY2FybG8tZmluYW5jaWFsLWFsZ29yaXRobXMtb24tZnBnYS5wZGY))
 - [Acceleration of financial Monte-Carlo simulations using FPGAs](https://ieeexplore.ieee.org/document/5671823)
-- [High Performance and Low Power Monte Carlo Methods to Option Pricing Models via High Level Design and Synthesis](https://ieeexplore.ieee.org/document/7920245)
